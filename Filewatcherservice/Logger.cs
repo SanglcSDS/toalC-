@@ -18,7 +18,7 @@ namespace Filewatcherservice
 
             }catch(Exception ex)
             {
-
+                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
             }
         }
     
