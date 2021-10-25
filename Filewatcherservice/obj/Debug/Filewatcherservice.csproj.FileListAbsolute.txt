@@ -1,0 +1,10 @@
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.csproj.AssemblyReference.cache
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.csproj.CoreCompileInputs.cache
+C:\Users\84936\source\repos\Filewatcherservice\bin\Debug\Filewatcherservice.exe.config
+C:\Users\84936\source\repos\Filewatcherservice\bin\Debug\Filewatcherservice.exe
+C:\Users\84936\source\repos\Filewatcherservice\bin\Debug\Filewatcherservice.pdb
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.ProjectInstaller.resources
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.csproj.GenerateResource.cache
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.exe
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.pdb
+C:\Users\84936\source\repos\Filewatcherservice\obj\Debug\Filewatcherservice.Service1.resources
