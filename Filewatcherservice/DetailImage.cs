@@ -8,7 +8,85 @@ namespace Filewatcherservice
 {
    public class DetailImage
     {
-       
+
+
+        private string pathImage;
+        private string sortName;
+        private DateTime startTime;
+        private DateTime endTime;
+        private string camera;
+        private string cardNo;
+        private DateTime currentDate;
+        private string terminalId;
+        // DateTime.ToString("MM/dd/yyyy HH:mm:ss")
+
+
+        public string getTerminalId()
+        {
+            return terminalId;
+        }
+
+        public void setTerminalIdy(string value)
+        {
+            terminalId = value;
+        }
+
+        public string getCamera()
+        {
+            return camera;
+        }
+
+        public void setCamera(string value)
+        {
+            camera = value;
+        }
+
+        public string getCardNo()
+        {
+            return cardNo;
+        }
+
+        public void setCardNo(string value)
+        {
+            cardNo = value;
+        }
+        public DateTime getCurrentDate()
+        {
+            return currentDate;
+        }
+
+        public void setCurrentDatey(DateTime value)
+        {
+            currentDate = value;
+        }
+
+        public string getPathImage()
+        {
+            return pathImage;
+        }
+
+        public void setPathImage(string value)
+        {
+            pathImage = value;
+        }
+        public DateTime getEndTime()
+        {
+            return endTime;
+        }
+
+        public void setEndTime(DateTime value)
+        {
+            endTime = value;
+        }
+        public DateTime getStartTime()
+        {
+            return startTime;
+        }
+
+        public void setStartTime(DateTime value)
+        {
+            startTime = value;
+        }
 
 
 

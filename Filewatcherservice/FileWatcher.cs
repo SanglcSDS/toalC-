@@ -89,8 +89,7 @@ namespace Filewatcherservice
                     string partInputImage = ConfigurationManager.AppSettings["partInputImage"];
 
                     List<DetailText> listDetail = listDetailText(e.FullPath);
-                    Console.WriteLine(listDetail.ToString());
-                    Console.WriteLine(listDetail.ToString());
+               
 
 
 

@@ -15,7 +15,9 @@ namespace Filewatcherservice
         private string cassette;
         private string transNo;
         private string timeDay;
-        private string nameDay;
+        private string terminalId;
+        // DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")
+      
 
         public string getTerminalId()
         {
