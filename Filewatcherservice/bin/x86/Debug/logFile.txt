@@ -1,120 +1,114 @@
-File:NDC123456_20211014093858_C1_001-CARD_INSERTED_524680XXXXXX0872.jpg Created at time:10/25/2021 9:42:51 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
+File:ruttien.txt Created at time:10/28/2021 4:26:17 PM
+File:ruttien.txt Changed at time:10/28/2021 4:26:19 PM
+File:ruttien.txt Changed at time:10/28/2021 4:26:21 PM
+File:ruttien.txt Changed at time:10/28/2021 4:28:54 PM
+File:ruttien.txt Changed at time:10/28/2021 4:28:54 PM
+File:ruttien.txt Changed at time:10/28/2021 4:28:54 PM
+The process failed: System.IO.IOException: Cannot create a file when that file already exists.
+
    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093859_C1_002-CARD_INSERTED_524680XXXXXX0872.jpg Created at time:10/25/2021 9:44:48 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
+   at System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   at System.IO.Directory.Move(String sourceDirName, String destDirName)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 145
+The process failed: System.IO.IOException: Cannot create a file when that file already exists.
+
    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
+   at System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   at System.IO.Directory.Move(String sourceDirName, String destDirName)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 145
+The process failed: System.IO.IOException: Cannot create a file when that file already exists.
+
    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
+   at System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   at System.IO.Directory.Move(String sourceDirName, String destDirName)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 145
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\partInputText\ruttien.txt' because it is being used by another process.
    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.InternalReadAllLines(String path, Encoding encoding)
+   at System.IO.File.ReadAllLines(String path)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 84
+The process failed: System.IO.IOException: Cannot create a file when that file already exists.
+
    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:49:26 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
+   at System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   at System.IO.Directory.Move(String sourceDirName, String destDirName)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 145
+The process failed: System.IO.IOException: Cannot create a file when that file already exists.
+
    at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:49:26 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:49:27 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:50:16 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:50:16 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:50:16 PM
-File:NDC123456_20211014093858_C1_001-CARD_INSERTED_524680XXXXXX0872.jpg Deleted at time:10/25/2021 9:51:09 PM
-File:NDC123456_20211014093859_C1_002-CARD_INSERTED_524680XXXXXX0872.jpg Deleted at time:10/25/2021 9:51:09 PM
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Created at time:10/25/2021 9:51:48 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 9:54:49 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093858_C1_001-CARD_INSERTED_524680XXXXXX0872.jpg Created at time:10/25/2021 9:55:31 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093858_C1_001-CARD_INSERTED_524680XXXXXX0872.jpg Changed at time:10/25/2021 9:55:36 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 40
-File:NDC123456_20211014093858_C1_001-CARD_INSERTED_524680XXXXXX0872.jpg Changed at time:10/25/2021 9:55:36 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 37
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 10:11:53 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 37
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 10:11:53 PM
-The process failed: System.IO.IOException: Cannot create "C:\partInputText\test.txt" because a file or directory with the same name already exists.
-   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
-   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
-   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
-   at System.IO.Directory.CreateDirectory(String path)
-   at Filewatcherservice.FileWatcher.PathLocation(String value) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 37
-File:NDC123456_20211014093641_C1_001-COMM_ONLINE.jpg Changed at time:10/25/2021 10:11:54 PM
+   at System.IO.Directory.InternalMove(String sourceDirName, String destDirName, Boolean checkHost)
+   at System.IO.Directory.Move(String sourceDirName, String destDirName)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 145
+File:ruttien.txt Changed at time:10/28/2021 4:38:19 PM
+File:ruttien.txt Changed at time:10/28/2021 4:38:22 PM
+File:ruttien.txt Changed at time:10/28/2021 4:38:25 PM
+File:ruttien.txt Changed at time:10/28/2021 4:39:50 PM
+File:ruttien.txt Changed at time:10/28/2021 4:39:52 PM
+File:ruttien.txt Changed at time:10/28/2021 4:39:55 PM
+File:ruttien.txt Changed at time:10/28/2021 4:41:15 PM
+File:ruttien.txt Changed at time:10/28/2021 4:41:15 PM
+File:ruttien.txt Changed at time:10/28/2021 4:41:15 PM
+File:ruttien.txt Changed at time:10/28/2021 4:44:27 PM
+File:ruttien.txt Changed at time:10/28/2021 4:44:35 PM
+File:ruttien.txt Changed at time:10/28/2021 4:44:42 PM
+File:ruttien.txt Changed at time:10/28/2021 4:49:55 PM
+File:ruttien.txt Changed at time:10/28/2021 4:51:08 PM
+File:ruttien.txt Changed at time:10/28/2021 4:53:22 PM
+File:ruttien.txt Changed at time:10/28/2021 4:56:20 PM
+File:ruttien.txt Changed at time:10/28/2021 4:56:26 PM
+File:ruttien.txt Changed at time:10/28/2021 4:56:29 PM
+File:ruttien.txt Changed at time:10/28/2021 4:59:28 PM
+File:ruttien.txt Changed at time:10/28/2021 4:59:35 PM
+File:ruttien.txt Changed at time:10/28/2021 4:59:39 PM
+File:ruttien.txt Changed at time:10/28/2021 5:02:13 PM
+File:ruttien.txt Changed at time:10/28/2021 5:02:15 PM
+File:ruttien.txt Changed at time:10/28/2021 5:02:17 PM
+File:ruttien.txt Changed at time:10/28/2021 5:04:19 PM
+File:ruttien.txt Changed at time:10/28/2021 5:04:19 PM
+File:ruttien.txt Changed at time:10/28/2021 5:04:19 PM
+File:ruttien.txt Changed at time:10/29/2021 8:08:57 AM
+File:ruttien.txt Changed at time:10/29/2021 8:21:54 AM
+File:ruttien.txt Changed at time:10/29/2021 8:22:10 AM
+File:ruttien.txt Changed at time:10/29/2021 8:22:51 AM
+File:ruttien.txt Changed at time:10/29/2021 8:23:08 AM
+File:ruttien.txt Changed at time:10/29/2021 8:38:08 AM
+File:ruttien.txt Changed at time:10/29/2021 8:38:09 AM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:12:45 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:12:45 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:14:02 PM
+C:\Filewatcherservice\partInputText\
+File:20211014 - Copy.jrn Changed at time:11/1/2021 1:14:26 PM
+C:\Filewatcherservice\partInputText\
+File:20211014 - Copy.jrn Changed at time:11/1/2021 1:14:26 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:15:27 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:15:27 PM
+C:\Filewatcherservice\partInputText\
+File:20211014 - Copy.jrn Changed at time:11/1/2021 1:15:53 PM
+C:\Filewatcherservice\partInputText\
+File:20211014 - Copy.jrn Changed at time:11/1/2021 1:15:53 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:16:30 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:21:01 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:21:51 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:23:28 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:25:47 PM
+C:\Filewatcherservice\partInputText\
+File:20211014.jrn Changed at time:11/1/2021 1:26:59 PM
+File:20211014.jrn Changed at time:11/1/2021 1:40:35 PM
+File:20211014.jrn Changed at time:11/1/2021 2:09:44 PM
+File:20211014.jrn Changed at time:11/1/2021 2:12:41 PM
+File:20211014.jrn Changed at time:11/1/2021 2:18:16 PM
+File:20211014.jrn Changed at time:11/1/2021 2:21:43 PM

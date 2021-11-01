@@ -87,6 +87,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailImage.cs" />
+    <Compile Include="DetailText.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="FileWatcher.cs" />
     <Compile Include="ProjectInstaller.cs">
