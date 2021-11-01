@@ -11,7 +11,8 @@ namespace Filewatcherservice
 
 
         private string pathImage;
-        private string sortName;
+        private string description;
+        private string descriptionItem;
         private DateTime startTime;
         private DateTime endTime;
         private string camera;
@@ -19,8 +20,24 @@ namespace Filewatcherservice
         private DateTime currentDate;
         private string terminalId;
         // DateTime.ToString("MM/dd/yyyy HH:mm:ss")
+        public string getDescriptionItem()
+        {
+            return description;
+        }
 
+        public void setDescriptioItem(string value)
+        {
+            descriptionItem = value;
+        }
+        public string getDescription()
+        {
+            return descriptionItem;
+        }
 
+        public void setDescription(string value)
+        {
+            description = value;
+        }
         public string getTerminalId()
         {
             return terminalId;
@@ -55,7 +72,7 @@ namespace Filewatcherservice
             return currentDate;
         }
 
-        public void setCurrentDatey(DateTime value)
+        public void setCurrentDate(DateTime value)
         {
             currentDate = value;
         }

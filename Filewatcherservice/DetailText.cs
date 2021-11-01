@@ -9,15 +9,14 @@ namespace Filewatcherservice
     public class DetailText
     {
         private string pathImage;
-        private string sortName;
-        private string startTime;
-        private string endTime;
         private string cassette;
         private string transNo;
-        private string timeDay;
+        private string currentTime;
+        private string currentDate;
         private string terminalId;
-        // DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss")
-      
+        private DateTime startTime;
+        private DateTime endTime;
+
 
         public string getTerminalId()
         {
@@ -48,14 +47,23 @@ namespace Filewatcherservice
         {
             transNo = value;
         }
-        public string getTimeDay()
+        public string getCurrentTime()
         {
-            return timeDay;
+            return currentTime;
         }
 
-        public void setTimeDay(string value)
+        public void setCurrentTime(string value)
         {
-            timeDay = value;
+            currentTime = value;
+        }
+        public string getCurrentDate()
+        {
+            return currentDate;
+        }
+
+        public void setCurrentDate(string value)
+        {
+            currentDate = value;
         }
 
         public string getPathImage()
@@ -67,21 +75,21 @@ namespace Filewatcherservice
         {
             pathImage = value;
         }
-        public string getEndTime()
+        public DateTime getEndTime()
         {
             return endTime;
         }
 
-        public void setEndTime(string value)
+        public void setEndTime(DateTime value)
         {
             endTime = value;
         }
-        public string getStartTime()
+        public DateTime getStartTime()
         {
             return startTime;
         }
 
-        public void setStartTime(string value)
+        public void setStartTime(DateTime value)
         {
             startTime = value;
         }

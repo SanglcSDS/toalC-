@@ -6,24 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Drawing;
+using System.Globalization;
+
 namespace Filewatcherservice
 {
     public class FileWatcher
     {
 
         private FileSystemWatcher _filewatcher;
-        static string datetransaction = "";
-        static string timetransaction = "";
-        static string cassette = "";
-        static string transNo = "";
-
+        private static string partInputTexts = ConfigurationManager.AppSettings["partInputTexts"];
+        private static string partInputImage = ConfigurationManager.AppSettings["partInputImage"];
         public FileWatcher()
         {
-            //   string partOutputImage = ConfigurationManager.AppSettings["partOutputImage"];
-            string partInputTexts = ConfigurationManager.AppSettings["partInputTexts"];
-            string partInputImage = ConfigurationManager.AppSettings["partInputImage"];
             PathLocation(partInputImage);
-            //  PathLocation(partOutputImage);
             _filewatcher = new FileSystemWatcher(PathLocation(partInputTexts));
             _filewatcher.Changed += new FileSystemEventHandler(_filewatcher_Changed);
             //  _filewatcher.Created += new FileSystemEventHandler(_filewatcher_Created);
@@ -31,49 +26,11 @@ namespace Filewatcherservice
             //  _filewatcher.Deleted += new FileSystemEventHandler(_filewatcher_Deleted);
             _filewatcher.EnableRaisingEvents = true;
         }
-        List<string> listFileText(string path)
-
-        {
-            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
-            List<string> imageFiles = new List<string>();
-            foreach (string filename in files)
-            {
-                if (IsPhoto(filename))
-                {
-                    imageFiles.Add(filename);
-                }
-
-            }
-            return imageFiles;
-        }
 
 
-        private string PathLocation(string value)
-        {
-
-            try
-            {
-                if (Directory.Exists(value))
-                {
-                    return value;
-                }
-                DirectoryInfo di = Directory.CreateDirectory(value);
-
-
-            }
-            catch (Exception ex)
-            {
-                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
-
-            }
-            return value;
-
-
-
-        }
+ 
         void _filewatcher_Changed(object sender, FileSystemEventArgs e)
         {
-
 
 
             try
@@ -84,26 +41,17 @@ namespace Filewatcherservice
 
                 if (IsPhototext(e.Name))
                 {
-                    //    string partOutputImage = ConfigurationManager.AppSettings["partOutputImage"];
-                    string partInputTexts = ConfigurationManager.AppSettings["partInputTexts"];
-                    string partInputImage = ConfigurationManager.AppSettings["partInputImage"];
-
-                    List<DetailText> listDetail = listDetailText(e.FullPath);
-               
-
-
-
-
-                    foreach (string filename in listFileText(partInputImage))
+                    foreach (DetailText itemText in listDetailText(e.FullPath))
                     {
 
-                        string getFilName = Path.GetFileName(filename);
 
+                        foreach (DetailImage itemimage in listImageTransaction(partInputImage, itemText.getStartTime(), itemText.getEndTime()))
+                        {
+                            string getFilName = Path.GetFileName(itemimage.getPathImage());
+                            string pasrtSave = partInputImage + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+                            AddTextUatermark(itemimage.getPathImage(), pasrtSave, itemText.getCurrentTime(), itemText.getCurrentDate(), itemText.getCassetteo(), itemText.getTransNo());
 
-                        AddTextUatermark(filename, partInputImage + getFilName.Remove(getFilName.Length - 4) + "_" + transNo + ".jpg", timetransaction, datetransaction, cassette, transNo);
-                        FileInfo filetodelete = new FileInfo(filename);
-                        filetodelete.Delete();
-
+                        }
                     }
 
                 }
@@ -142,6 +90,49 @@ namespace Filewatcherservice
             Logger.Log(string.Format("File:{0} Deleted at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
 
         }
+
+        public static List<DetailImage> listImageTransaction(string partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
+        {
+            List<DetailImage> listDetailImage = new List<DetailImage>();
+            foreach (string filename in listFileText(partInputImage))
+            {
+                if (filename != null)
+                {
+                    DetailImage itemDetail = new DetailImage();
+                    CultureInfo provider = CultureInfo.InvariantCulture;
+                    string getFilName = Path.GetFileName(filename);
+                    string[] arrListStr = getFilName.Split(new char[] { '_' });
+                    itemDetail.setTerminalIdy(arrListStr[0]);
+                    DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
+                    if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
+                    {
+                        itemDetail.setCurrentDate(DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider));
+                        itemDetail.setPathImage(filename);
+                        itemDetail.setCamera(arrListStr[2]);
+                        string[] description = arrListStr[3].Split(new char[] { '-' });
+                        itemDetail.setDescriptioItem(description[0]);
+                        if (IsPhoto(arrListStr[4]))
+                        {
+                            itemDetail.setDescription(description[1] + "_" + arrListStr[4].Remove(arrListStr[4].Length - 4));
+                        }
+                        else
+                        {
+                            itemDetail.setDescription(description[1] + "_" + arrListStr[4]);
+                            itemDetail.setCardNo(arrListStr[5].Remove(arrListStr[5].Length - 4));
+
+                        }
+                        listDetailImage.Add(itemDetail);
+                    }
+
+                }
+
+
+            }
+            return listDetailImage;
+
+        }
+ 
+
         static void AddTextUatermark(string partImage, string pasrtSave, string timetransaction, string datetransaction, string cassette, string transNo)
         {
             try
@@ -176,37 +167,43 @@ namespace Filewatcherservice
 
             }
         }
-        public static List<DetailText> listDetailText(string fullPath )
+        public static List<DetailText> listDetailText(string fullPath)
         {
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            string getFilName = Path.GetFileName(fullPath);
             List<DetailText> listDetail = new List<DetailText>();
             DetailText detail = new DetailText();
             foreach (var line in File.ReadAllLines(fullPath))
             {
                 if (line.Contains("TRANSACTION START"))
                 {
-                    detail.setStartTime(line.Substring(0, 8));
-                }
-                if (line.Contains("TRANS NO"))
-                {
-                    //string aa = line.Substring(0, 8);
-                    detail.setTransNo(line.Remove(0, 14));
-                }
-                if (line.Contains("DATE  TIME"))
-                {
-                    //string aa = line.Substring(0, 8);
-                    detail.setTimeDay(line.Substring(13, 20));
+                    detail.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
                 }
 
                 if (line.Contains("CASH REQUEST:"))
                 {
-                    //string aa = line.Substring(0, 8);
-                    detail.setCassette(line.Remove(0, 24));
+                    string cassette = line.Remove(0, 23);
+                    detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
+
+                }
+                if (detail.getCassetteo() != null)
+                {
+                    if (line.Contains("TRANS NO"))
+                    {
+                        detail.setTransNo(line.Remove(0, 14));
+                    }
+                    if (line.Contains("DATE  TIME"))
+                    {
+                        string dateTime = line.Substring(13, 20);
+                        detail.setCurrentDate(dateTime.Substring(1, 10));
+                        detail.setCurrentTime(dateTime.Substring(12, 8));
+                    }
                 }
 
 
                 if (line.Contains("TRANSACTION END"))
                 {
-                    detail.setEndTime(line.Substring(0, 8));
+                    detail.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
                     listDetail.Add(detail);
 
 
@@ -216,7 +213,26 @@ namespace Filewatcherservice
 
             return listDetail;
         }
+        private string PathLocation(string value)
+        {
+            try
+            {
+                if (Directory.Exists(value))
+                {
+                    return value;
+                }
+                DirectoryInfo di = Directory.CreateDirectory(value);
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
 
+            }
+            return value;
+
+
+
+        }
         static string GetLine(string fileName, int line)
         {
             using (var sr = new StreamReader(fileName))
@@ -252,7 +268,22 @@ namespace Filewatcherservice
             return list;
         }
 
-   
+
+        public static List<string> listFileText(string path)
+
+        {
+            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+            List<string> imageFiles = new List<string>();
+            foreach (string filename in files)
+            {
+                if (IsPhoto(filename))
+                {
+                    imageFiles.Add(filename);
+                }
+
+            }
+            return imageFiles;
+        }
 
         public static bool IsPhototext(string fileName)
         {
