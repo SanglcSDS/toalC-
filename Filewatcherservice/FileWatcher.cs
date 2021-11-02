@@ -45,10 +45,10 @@ namespace Filewatcherservice
                 {
                     foreach (DetailText itemText in listDetailText(e.FullPath))
                     {
-                        foreach (DetailImage itemimage in listImageTransaction(cam1 + e.Name.Remove(e.Name.Length - 4)+"\\", itemText.getStartTime(), itemText.getEndTime()))
+                        foreach (DetailImage itemimage in listImageTransaction(cam1 + e.Name.Remove(e.Name.Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime()))
                         {
                             string getFilName = Path.GetFileName(itemimage.getPathImage());
-                            string pasrtSave = PathLocation(ouputCam1 + e.Name.Remove(e.Name.Length - 4) + "\\" )+ getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+                            string pasrtSave = PathLocation(ouputCam1 + e.Name.Remove(e.Name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
                             AddTextUatermark(itemimage.getPathImage(), pasrtSave, itemText.getCurrentTime(), itemText.getCurrentDate(), itemText.getCassetteo(), itemText.getTransNo());
 
                         }
@@ -168,96 +168,101 @@ namespace Filewatcherservice
             }
         }
 
-     /*   public static List<TransactionItem> getListTransactionItem(string path)
-        {
+        /*   public static List<TransactionItem> getListTransactionItem(string path)
+           {
 
-            DateTime itemDate;
+               DateTime itemDate;
 
-            CultureInfo provider = CultureInfo.InvariantCulture;
-            List<TransactionItem> list = new List<TransactionItem>();
-            string getFilName = Path.GetFileName(path);
-            DetailText itemDetailText = new DetailText();
-            TransactionItem transactionItem = new TransactionItem();
-            foreach (var line in File.ReadAllLines(path))
-            {
+               CultureInfo provider = CultureInfo.InvariantCulture;
+               List<TransactionItem> list = new List<TransactionItem>();
+               string getFilName = Path.GetFileName(path);
+               DetailText itemDetailText = new DetailText();
+               TransactionItem transactionItem = new TransactionItem();
+               foreach (var line in File.ReadAllLines(path))
+               {
 
-                if (line.Contains("TRANSACTION START"))
-                {
-                    transactionItem.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                }
-                if (line.Contains("TRANSACTION REQUEST"))
-                {
-                    if(itemDate)
-                    itemDetailText.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                   if (line.Contains("TRANSACTION START"))
+                   {
+                       transactionItem.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                   }
+                   if (line.Contains("TRANSACTION REQUEST"))
+                   {
+                       if(itemDate)
+                       itemDetailText.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
 
-                }
+                   }
 
-                if (line.Contains("TRANS NO"))
-                {
-                    itemDetailText.setTransNo(line.Remove(0, 14));
-                }
-                if (line.Contains("DATE  TIME"))
-                {
-                    string dateTime = line.Substring(13, 20);
-                    itemDetailText.setCurrentDate(dateTime.Substring(1, 10));
-                    itemDetailText.setCurrentTime(dateTime.Substring(12, 8));
+                   if (line.Contains("TRANS NO"))
+                   {
+                       itemDetailText.setTransNo(line.Remove(0, 14));
+                   }
+                   if (line.Contains("DATE  TIME"))
+                   {
+                       string dateTime = line.Substring(13, 20);
+                       itemDetailText.setCurrentDate(dateTime.Substring(1, 10));
+                       itemDetailText.setCurrentTime(dateTime.Substring(12, 8));
 
-                }
-                if (line.Contains("TRANSACTION REQUEST") && itemDetailText.getStartTime() != DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider))
-                {
-                    itemDetailText.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-
-
-
-                }
-
-                if (line.Contains("TRANSACTION END"))
-                {
-                    transactionItem.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                    list.Add(transactionItem);
-                }
+                   }
+                   if (line.Contains("TRANSACTION REQUEST") && itemDetailText.getStartTime() != DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider))
+                   {
+                       itemDetailText.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
 
 
-            }
-            return list;
-        }*/
+
+                   }
+
+                   if (line.Contains("TRANSACTION END"))
+                   {
+                       transactionItem.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                       list.Add(transactionItem);
+                   }
+
+
+               }
+               return list;
+           }*/
         public static List<DetailText> listDetailText(string fullPath)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
             string getFilName = Path.GetFileName(fullPath);
             List<DetailText> listDetail = new List<DetailText>();
             DetailText detail = new DetailText();
-            foreach (var line in File.ReadAllLines(fullPath))
+
+
+
+            using (StreamReader reader = new StreamReader(fullPath))
             {
-               
-                if (line.Contains("CASH REQUEST:"))
-                {
-                    detail.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                    string cassette = line.Remove(0, 23);
-                    detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
+                string line;
 
-                }
-                if (detail.getCassetteo() != null)
+                while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Contains("TRANS NO"))
+                    if (line.Contains("CASH REQUEST:"))
                     {
-                        detail.setTransNo(line.Remove(0, 14));
-                    }
-                    if (line.Contains("DATE  TIME"))
-                    {
-                        string dateTime = line.Substring(13, 20);
-                        detail.setCurrentDate(dateTime.Substring(1, 10));
-                        detail.setCurrentTime(dateTime.Substring(12, 8));
-                    }
-                }
-                if (line.Contains("CASH TAKEN"))
-                {
-                    detail.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                      listDetail.Add(detail);
-                    detail = new DetailText();
-                }
+                        detail.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        string cassette = line.Remove(0, 23);
+                        detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
 
-             
+                    }
+                    if (detail.getCassetteo() != null)
+                    {
+                        if (line.Contains("TRANS NO"))
+                        {
+                            detail.setTransNo(line.Remove(0, 14));
+                        }
+                        if (line.Contains("DATE  TIME"))
+                        {
+                            string dateTime = line.Substring(13, 20);
+                            detail.setCurrentDate(dateTime.Substring(1, 10));
+                            detail.setCurrentTime(dateTime.Substring(12, 8));
+                        }
+                    }
+                    if (line.Contains("CASH TAKEN"))
+                    {
+                        detail.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        listDetail.Add(detail);
+                        detail = new DetailText();
+                    }
+                }
 
             }
 
@@ -332,6 +337,7 @@ namespace Filewatcherservice
                 }
 
             }
+
             return imageFiles;
         }
 
