@@ -167,6 +167,37 @@ namespace Filewatcherservice
 
             }
         }
+
+        public static List<TransactionItem> getListTransactionItem(string path)
+        {
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            List<TransactionItem> list = new List<TransactionItem>();
+            string getFilName = Path.GetFileName(path);
+            DetailText itemDetailText = new DetailText();
+            TransactionItem transactionItem = new TransactionItem();
+            foreach (var line in File.ReadAllLines(path))
+            {
+              
+                if ( line.Contains("TRANSACTION START"))
+                {
+                    transactionItem.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                }
+                if (itemDetailText.get)
+                {
+                    itemDetailText.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                }
+
+
+
+                if( line.Contains("TRANSACTION END")){
+                    transactionItem.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                    list.Add(transactionItem);
+                }
+               
+                
+            }
+            return list;
+        }
         public static List<DetailText> listDetailText(string fullPath)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -199,7 +230,6 @@ namespace Filewatcherservice
                         detail.setCurrentTime(dateTime.Substring(12, 8));
                     }
                 }
-
 
                 if (line.Contains("TRANSACTION END"))
                 {

@@ -9,6 +9,7 @@ namespace Filewatcherservice
     public class DetailText
     {
         private string pathImage;
+        private string transactionName;
         private string cassette;
         private string transNo;
         private string currentTime;
@@ -18,6 +19,15 @@ namespace Filewatcherservice
         private DateTime endTime;
 
 
+        public string getTransactionName()
+        {
+            return transactionName;
+        }
+
+        public void setTransactionName(string value)
+        {
+            transactionName = value;
+        }
         public string getTerminalId()
         {
             return terminalId;
