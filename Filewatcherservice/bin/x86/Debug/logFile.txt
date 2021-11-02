@@ -120,3 +120,159 @@ File:20211014.jrn Changed at time:11/2/2021 8:50:26 AM
 File:20211014.jrn Changed at time:11/2/2021 8:51:48 AM
 File:20211014.jrn Changed at time:11/2/2021 8:55:49 AM
 File:20211014.jrn Changed at time:11/2/2021 8:56:58 AM
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.IO.IOException: Cannot create "C:\Filewatcherservice\partInputText\20211014.txt" because a file or directory with the same name already exists.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.Directory.InternalCreateDirectory(String fullPath, String path, Object dirSecurityObj, Boolean checkHost)
+   at System.IO.Directory.InternalCreateDirectoryHelper(String path, Boolean checkHost)
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 387
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 388
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 386
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 388
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 388
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 390
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 395
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 392
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 391
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 391
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 390
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 390
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 391
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 392
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 390
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 394
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 393
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 389
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: path
+   at System.IO.Directory.CreateDirectory(String path)
+   at Filewatcherservice.FileWatcher.PathLocation(String value) in F:\MITEC\ATM\New folder\toalC-\Filewatcherservice\FileWatcher.cs:line 390
+C:\Filewatcherservice\partInputText\
+File:ruttien.txt Changed at time:11/2/2021 4:46:06 PM

@@ -18,15 +18,6 @@ namespace Filewatcherservice
         private DateTime startTime;
         private DateTime endTime;
 
-        public DetailText(string transNo)
-        {
-            this.transNo = transNo;
-        }
-
-        public DetailText()
-        {
-        }
-
 
         public string getTransactionName()
         {

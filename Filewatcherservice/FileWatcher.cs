@@ -32,7 +32,7 @@ namespace Filewatcherservice
         void _filewatcher_Changed(object sender, FileSystemEventArgs e)
         {
 
-            getListTransactionItem1(ConfigurationManager.AppSettings["pathInput"]);
+            getListTransactionItem2(ConfigurationManager.AppSettings["pathInput"]);
             try
             {
                 _filewatcher.Changed -= _filewatcher_Changed;
@@ -168,6 +168,91 @@ namespace Filewatcherservice
             }
         }
 
+        //Lấy list transaction _ anhbt
+        public static List<TransactionItem> getListTransactionItem2(string path)
+        {
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            List<TransactionItem> list = new List<TransactionItem>();
+            string getFilName = Path.GetFileName(path);
+            DetailText itemDetailText = new DetailText();
+
+            string[] lines = File.ReadAllLines(path);
+            int x = 0;
+            for (int i = x; i < lines.Length; i++)
+            {
+                if (lines[i].Contains("TRANSACTION START"))
+                {
+                    TransactionItem transactionItem = new TransactionItem();
+                    transactionItem.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + lines[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                    List<TransactionDetail> detailTexts = new List<TransactionDetail>();
+                    TransactionDetail transactionDetail = new TransactionDetail();
+                    for (int j = i; j < lines.Length; j++)
+                    {
+                        if (lines[j].Contains("CASH REQUEST"))
+                        {
+                            transactionDetail.setCashRequest(lines[j].Substring(0, 8));
+                        }
+                        if (lines[j].Contains("CASH PRESENTED"))
+                        {
+                            transactionDetail.setCashPersented(lines[j].Substring(0, 8));
+                        }
+
+                        if (lines[j].Contains("TRANS NO"))
+                        {
+                            transactionDetail.setTransNo(lines[j].Substring(14, 7));
+                        }
+                        if (lines[j].Contains("SEQ NO"))
+                        {
+                            transactionDetail.setSegNo(lines[j].Substring(14, 4));
+                        }
+                        if (lines[j].Contains("DATE  TIME"))
+                        {
+                            transactionDetail.setDateTime(lines[j].Substring(14,19));
+                        }
+                        if (lines[j].Contains("TXN TYPE"))
+                        {
+                            transactionDetail.setTxnType(lines[j].Substring(14, lines[j].Length - 14));
+                        }
+                        if (lines[j].Contains("AMOUNT"))
+                        {
+                            transactionDetail.setAmount(lines[j].Substring(14, lines[j].Length - 14));
+                        }
+                        if (lines[j].Contains("CASH TAKEN"))
+                        {
+                            transactionDetail.setCashTaken(lines[j].Substring(0, 8));
+                            detailTexts.Add(transactionDetail);
+
+                        }
+                        transactionItem.setListDetailText(detailTexts);
+                        if (lines[j].Contains("TRANSACTION END"))
+                        {
+                            transactionItem.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + lines[j].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                            transactionItem.setListDetailText(detailTexts);
+                            list.Add(transactionItem);
+                            x = i + 1;
+                            break;
+
+                        }
+
+
+                    }
+                }
+                //if (itemDetailText.get)
+                //{
+                //    itemDetailText.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                //}
+                //if (lines[i].Contains("TRANSACTION END"))
+                //{
+                //    transactionItem.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + lines[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                //    list.Add(transactionItem);
+                //}
+
+
+            }
+            return list;
+        }
+
+        // Lấy list Transaction
         public static List<TransactionItem> getListTransactionItem1(string path)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -183,13 +268,13 @@ namespace Filewatcherservice
                 if (lines[i].Contains("TRANSACTION START"))
                 {
                     transactionItem.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + lines[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                    List<DetailText> detailTexts = new List<DetailText>();
+                    List<TransactionDetail> detailTexts = new List<TransactionDetail>();
                     for (int j = i; j < lines.Length; j++)
                     {
                        
                         if (lines[j].Contains("TRANS NO"))
                         {
-                            detailTexts.Add(new DetailText(lines[j].Substring(14, 7)));
+                            detailTexts.Add(new TransactionDetail(lines[j].Substring(14, 7)));
                             
                         }
                         if (lines[j].Contains("TRANSACTION END"))

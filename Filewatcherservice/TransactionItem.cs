@@ -11,7 +11,7 @@ namespace Filewatcherservice
         private DateTime startTime;
         private DateTime endTime;
         private int lineNumber;
-        private List<DetailText> listDetailText;
+        private List<TransactionDetail> listDetailText;
         private string transNo;
 
         public void setTransNo(string value)
@@ -24,12 +24,12 @@ namespace Filewatcherservice
             return transNo;
         }
 
-        public List<DetailText> getListDetailText()
+        public List<TransactionDetail> getListDetailText()
         {
             return listDetailText;
         }
 
-        public void setListDetailText(List<DetailText> value)
+        public void setListDetailText(List<TransactionDetail> value)
         {
             listDetailText = value;
         }
