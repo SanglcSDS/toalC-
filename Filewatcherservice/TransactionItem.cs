@@ -11,19 +11,10 @@ namespace Filewatcherservice
         private DateTime startTime;
         private DateTime endTime;
         private int lineNumber;
-        private List<DetailText> listDetailText;
+     
 
 
-
-        public List<DetailText> getListDetailText()
-        {
-            return listDetailText;
-        }
-
-        public void setListDetailText(List<DetailText> value)
-        {
-            listDetailText = value;
-        }
+       
         public DateTime getStartTime()
         {
             return startTime;
@@ -37,11 +28,7 @@ namespace Filewatcherservice
         {
             endTime = value;
         }
-        public DateTime getStartTime()
-        {
-            return startTime;
-        }
-
+      
         public void setStartTime(DateTime value)
         {
             startTime = value;
