@@ -14,11 +14,15 @@ namespace Filewatcherservice
     {
 
         private FileSystemWatcher _filewatcher;
-        private static string partInputTexts = ConfigurationManager.AppSettings["partInputTexts"];
-        private static string partInputImage = ConfigurationManager.AppSettings["partInputImage"];
+        private static string partInputTexts = ConfigurationManager.AppSettings["text"];
+        private static string cam1 = ConfigurationManager.AppSettings["cam1"];
+        private static string ouputCam1 = ConfigurationManager.AppSettings["ouputCam1"];
+        private static int indexline;
+        private static string nameText = null;
         public FileWatcher()
         {
-            PathLocation(partInputImage);
+            PathLocation(cam1);
+            PathLocation(ouputCam1);
             _filewatcher = new FileSystemWatcher(PathLocation(partInputTexts));
             _filewatcher.Changed += new FileSystemEventHandler(_filewatcher_Changed);
             //  _filewatcher.Created += new FileSystemEventHandler(_filewatcher_Created);
@@ -41,14 +45,24 @@ namespace Filewatcherservice
 
                 if (IsPhototext(e.Name))
                 {
-                    foreach (DetailText itemText in listDetailText(e.FullPath))
+                    if (nameText == null)
+                    {
+                        nameText = e.Name;
+                    }
+                    if (!nameText.Equals(e.Name))
+                    {
+                        nameText = e.Name;
+                        indexline = 0;
+                        
+                    }
+                    foreach (DetailText itemText in listDetailText(e.FullPath, indexline))
+
                     {
 
-
-                        foreach (DetailImage itemimage in listImageTransaction(partInputImage, itemText.getStartTime(), itemText.getEndTime()))
+                        foreach (DetailImage itemimage in listImageTransaction(cam1 + e.Name.Remove(e.Name.Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime()))
                         {
                             string getFilName = Path.GetFileName(itemimage.getPathImage());
-                            string pasrtSave = partInputImage + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+                            string pasrtSave = PathLocation(ouputCam1 + e.Name.Remove(e.Name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
                             AddTextUatermark(itemimage.getPathImage(), pasrtSave, itemText.getCurrentTime(), itemText.getCurrentDate(), itemText.getCassetteo(), itemText.getTransNo());
 
                         }
@@ -131,6 +145,18 @@ namespace Filewatcherservice
             return listDetailImage;
 
         }
+        public string GetLine(string fileName, int line)
+        {
+            using (var sr = new StreamReader(fileName))
+            {
+                for (int i = 1; i < line; i++)
+                {
+
+                    sr.ReadLine();
+                }
+                return sr.ReadLine();
+            }
+        }
 
 
         static void AddTextUatermark(string partImage, string pasrtSave, string timetransaction, string datetransaction, string cassette, string transNo)
@@ -146,19 +172,15 @@ namespace Filewatcherservice
                     Graphics graphicImage = Graphics.FromImage(img);
                     StringFormat stringformat1 = new StringFormat();
                     stringformat1.Alignment = StringAlignment.Far;
-                    Color stringColor1 = ColorTranslator.FromHtml("#fbfe47");
+                    Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
                     graphicImage.DrawString(cassette, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(5, 30));
                     graphicImage.DrawString(datetransaction, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 660));
                     graphicImage.DrawString(timetransaction, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 690));
                     graphicImage.DrawString("Trans No: " + transNo, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(600, 690));
 
                     img.Save(pasrtSave);
-                    //img.dí
 
                 }
-
-
-                //  
 
             }
             catch (Exception ex)
@@ -334,47 +356,58 @@ namespace Filewatcherservice
             }
             return list;
         }
-        public static List<DetailText> listDetailText(string fullPath)
+        public static List<DetailText> listDetailText(string fullPath, int indexlines)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
             string getFilName = Path.GetFileName(fullPath);
             List<DetailText> listDetail = new List<DetailText>();
             DetailText detail = new DetailText();
-            foreach (var line in File.ReadAllLines(fullPath))
+            using (StreamReader reader = new StreamReader(new FileStream(fullPath, FileMode.Open)))
             {
-                if (line.Contains("TRANSACTION START"))
+
+
+                for (int i = 1; i <= indexlines; i++)
                 {
-                    detail.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+
+                    reader.ReadLine();
                 }
 
-                if (line.Contains("CASH REQUEST:"))
-                {
-                    string cassette = line.Remove(0, 23);
-                    detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
+                string line;
 
-                }
-                if (detail.getCassetteo() != null)
+                while ((line = reader.ReadLine()) != null)
                 {
-                    if (line.Contains("TRANS NO"))
+                    indexline = indexline + 1;
+
+
+                    if (line.Contains("CASH REQUEST:"))
                     {
-                        detail.setTransNo(line.Remove(0, 14));
+                        detail.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        string cassette = line.Remove(0, 23);
+                        detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
+
                     }
-                    if (line.Contains("DATE  TIME"))
+                    if (detail.getCassetteo() != null)
                     {
-                        string dateTime = line.Substring(13, 20);
-                        detail.setCurrentDate(dateTime.Substring(1, 10));
-                        detail.setCurrentTime(dateTime.Substring(12, 8));
+                        if (line.Contains("TRANS NO"))
+                        {
+                            detail.setTransNo(line.Remove(0, 14));
+                        }
+                        if (line.Contains("DATE  TIME"))
+                        {
+                            string dateTime = line.Substring(13, 20);
+                            detail.setCurrentDate(dateTime.Substring(1, 10));
+                            detail.setCurrentTime(dateTime.Substring(12, 8));
+                        }
+                    }
+                    if (line.Contains("CASH TAKEN"))
+                    {
+                        detail.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        listDetail.Add(detail);
+                        detail = new DetailText();
                     }
                 }
 
-                if (line.Contains("TRANSACTION END"))
-                {
-                    detail.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                    listDetail.Add(detail);
-
-
-                }
-
+                reader.Close();
             }
 
             return listDetail;
@@ -399,15 +432,7 @@ namespace Filewatcherservice
 
 
         }
-        static string GetLine(string fileName, int line)
-        {
-            using (var sr = new StreamReader(fileName))
-            {
-                for (int i = 1; i < line; i++)
-                    sr.ReadLine();
-                return sr.ReadLine();
-            }
-        }
+
         public static bool IsPhoto(string fileName)
         {
             List<string> list = GetAllPhotosExtensions();
@@ -448,6 +473,7 @@ namespace Filewatcherservice
                 }
 
             }
+
             return imageFiles;
         }
 
