@@ -389,3 +389,132 @@ File:20211022.jrn Changed at time:11/3/2021 5:08:12 PM
 File:20211022.jrn Changed at time:11/3/2021 5:15:30 PM
 File:20211022.jrn Changed at time:11/3/2021 5:16:56 PM
 File:20211022.jrn Changed at time:11/3/2021 5:19:14 PM
+File:20211014.jrn Changed at time:11/3/2021 6:47:15 PM
+File:20211014.jrn Changed at time:11/3/2021 6:47:15 PM
+File:20211014.jrn Changed at time:11/3/2021 6:53:44 PM
+File:20211014.jrn Changed at time:11/3/2021 6:53:51 PM
+File:20211014.jrn Changed at time:11/3/2021 6:53:51 PM
+File:20211014.jrn Changed at time:11/3/2021 6:54:09 PM
+File:20211014.jrn Changed at time:11/3/2021 6:54:11 PM
+File:20211014.jrn Changed at time:11/3/2021 6:54:13 PM
+File:20211014.jrn Changed at time:11/3/2021 6:54:15 PM
+File:20211022.jrn Changed at time:11/3/2021 6:55:23 PM
+File:20211022.jrn Changed at time:11/3/2021 6:55:46 PM
+File:20211022.jrn Changed at time:11/3/2021 8:21:00 PM
+File:20211022.jrn Changed at time:11/3/2021 8:22:50 PM
+File:20211022.jrn Changed at time:11/3/2021 8:23:42 PM
+File:20211022.jrn Changed at time:11/3/2021 8:24:08 PM
+File:20211022.jrn Changed at time:11/3/2021 8:24:36 PM
+File:20211022.jrn Changed at time:11/3/2021 8:25:01 PM
+File:20211022.jrn Changed at time:11/3/2021 8:25:10 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:21 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:25 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:30 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:40 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:40 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:45 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:45 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:54 PM
+File:20211022.jrn Changed at time:11/3/2021 8:30:54 PM
+File:20211022.jrn Changed at time:11/3/2021 8:31:19 PM
+File:20211022.jrn Changed at time:11/3/2021 8:31:33 PM
+File:20211022.jrn Changed at time:11/3/2021 8:33:34 PM
+File:20211022.jrn Changed at time:11/3/2021 8:33:48 PM
+File:20211022.jrn Changed at time:11/3/2021 8:35:52 PM
+File:20211022.jrn Changed at time:11/3/2021 8:36:03 PM
+File:20211022.jrn Changed at time:11/3/2021 8:37:51 PM
+File:20211022.jrn Changed at time:11/3/2021 8:42:20 PM
+File:20211022.jrn Changed at time:11/3/2021 8:50:27 PM
+File:20211022.jrn Changed at time:11/3/2021 8:52:36 PM
+File:20211022.jrn Changed at time:11/3/2021 8:52:50 PM
+File:20211022.jrn Changed at time:11/3/2021 8:52:54 PM
+File:20211022.jrn Changed at time:11/3/2021 8:52:58 PM
+File:20211022.jrn Changed at time:11/3/2021 8:53:01 PM
+File:20211022.jrn Changed at time:11/3/2021 8:53:06 PM
+File:20211022.jrn Changed at time:11/3/2021 8:56:02 PM
+File:20211022.jrn Changed at time:11/3/2021 8:56:39 PM
+File:20211022.jrn Changed at time:11/3/2021 8:57:34 PM
+File:20211022.jrn Changed at time:11/3/2021 8:58:40 PM
+File:20211022.jrn Changed at time:11/3/2021 8:59:21 PM
+File:20211022.jrn Changed at time:11/3/2021 9:10:44 PM
+File:20211022.jrn Changed at time:11/3/2021 9:11:20 PM
+File:20211022.jrn Changed at time:11/3/2021 9:31:38 PM
+File:20211022.jrn Changed at time:11/3/2021 9:32:30 PM
+File:20211022.jrn Changed at time:11/3/2021 9:38:21 PM
+File:20211022.jrn Changed at time:11/3/2021 9:49:46 PM
+File:20211022.jrn Changed at time:11/3/2021 9:51:45 PM
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 58
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 58
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 58
+File:20211022.jrn Changed at time:11/3/2021 9:53:18 PM
+File:20211022.jrn Changed at time:11/3/2021 9:54:22 PM
+File:20211022.jrn Changed at time:11/3/2021 10:11:59 PM
+File:20211022.jrn Changed at time:11/3/2021 10:13:37 PM
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path)
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 58
+File:20211022.jrn Changed at time:11/3/2021 10:35:25 PM
+File:20211022.jrn Changed at time:11/3/2021 10:35:31 PM
+File:20211022.jrn Changed at time:11/3/2021 10:35:37 PM
+File:20211022.jrn Changed at time:11/3/2021 10:35:42 PM
+File:20211022.jrn Changed at time:11/3/2021 10:35:48 PM
+File:20211022.jrn Changed at time:11/3/2021 10:35:53 PM
+File:20211022.jrn Changed at time:11/3/2021 10:35:58 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:03 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:08 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:44 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:51 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:53 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:56 PM
+File:20211022.jrn Changed at time:11/3/2021 10:36:58 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:01 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:03 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:07 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:09 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:11 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:12 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:15 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:17 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:18 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:20 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:43 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:46 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:48 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:49 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:51 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:52 PM
+File:20211022.jrn Changed at time:11/3/2021 10:37:58 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:00 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:04 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:07 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:11 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:14 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:16 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:21 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:24 PM
+File:20211022.jrn Changed at time:11/3/2021 10:38:26 PM
+File:20211022.jrn Changed at time:11/3/2021 10:39:27 PM
+File:20211022.jrn Changed at time:11/3/2021 10:39:56 PM
+File:20211022.jrn Changed at time:11/3/2021 10:39:57 PM

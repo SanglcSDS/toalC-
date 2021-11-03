@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Drawing;
 using System.Globalization;
+using System.Timers;
+using System.Threading;
 
 namespace Filewatcherservice
 {
@@ -29,19 +31,13 @@ namespace Filewatcherservice
             PathLocation(ouputCam2);
             _filewatcher = new FileSystemWatcher(PathLocation(partInputTexts));
             _filewatcher.Changed += new FileSystemEventHandler(_filewatcher_Changed);
-            //  _filewatcher.Created += new FileSystemEventHandler(_filewatcher_Created);
-            //  _filewatcher.Renamed += new FileSystemEventHandler(_filewatcher_Renamed);
-            //  _filewatcher.Deleted += new FileSystemEventHandler(_filewatcher_Deleted);
             _filewatcher.EnableRaisingEvents = true;
 
         }
 
-
-        List<QueueName> listQueue = new List<QueueName>();
-        Queue<string> hoso_canxuly = new Queue<string>();
         List<DetailText> listlisDetailText = new List<DetailText>();
 
-        void _filewatcher_Changed(object sender, FileSystemEventArgs e)
+        public void _filewatcher_Changed(object sender, FileSystemEventArgs e)
         {
 
 
@@ -51,93 +47,29 @@ namespace Filewatcherservice
 
                 _filewatcher.EnableRaisingEvents = false;
                 Console.WriteLine("dòng thứ:" + indexline);
-                QueueName ueueName = new QueueName();
-                ueueName.setFullPath(e.FullPath);
-                ueueName.setName(e.Name);
-                listQueue.Add(ueueName);
 
-
-
-                foreach (QueueName fullPath in listQueue)
+                if (IsTextJrn(e.Name))
                 {
-                  
-                  //  string fullPath.getName() = fullPath.Remove(0,fullPath.Length - 12);
 
-                    if (IsPhototext(fullPath.getName()))
-                    {
-                        if (nameText == null)
-                        {
-                            nameText = fullPath.getName();
-                        }
-                        if (!nameText.Equals(fullPath.getName()))
-                        {
-                            nameText = fullPath.getName();
-                            indexline = 0;
-                           
-
-                        }
-                        hoso_canxuly.Enqueue(e.Name);
-                        while (hoso_canxuly.Count > 0)
-                        {
-                            var hs = hoso_canxuly.Dequeue();
-                            Console.WriteLine($"Xử lý {hs}, còn lại {hoso_canxuly.Count}");
-                            listlisDetailText = listDetailText(fullPath.getFullPath(), indexline);
-                        }
-                     
+          
 
 
-                        foreach (DetailText itemText in listlisDetailText)
-
-                        {
-
-                            foreach (DetailImage itemimage in listImageTransaction(cam1 + fullPath.getName().Remove(fullPath.getName().Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime()))
-                            {
-                                string getFilName = Path.GetFileName(itemimage.getPathImage());
-                                string pasrtSave = PathLocation(ouputCam1 + fullPath.getName().Remove(fullPath.getName().Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
-                                AddTextUatermark(itemimage.getPathImage(), pasrtSave, itemText.getCurrentTime(), itemText.getCurrentDate(), itemText.getCassetteo(), itemText.getTransNo());
-
-                            }
-
-
-                        }
-                        foreach (DetailText itemText in listlisDetailText)
-
-                        {
-                            foreach (DetailImage itemimage in listImageTransaction(cam2 + fullPath.getName().Remove(fullPath.getName().Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime()))
-                            {
-                                string getFilName = Path.GetFileName(itemimage.getPathImage());
-                                string pasrtSave = PathLocation(ouputCam2 + fullPath.getName().Remove(fullPath.getName().Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
-                                AddTextUatermark(itemimage.getPathImage(), pasrtSave, itemText.getCurrentTime(), itemText.getCurrentDate(), itemText.getCassetteo(), itemText.getTransNo());
-
-                            }
-
-                        }
-                        
-
-
-                    }
-                    else
-                    {
-                        Logger.Log(string.Format(_filewatcher.Path));
-                    }
-                    Logger.Log(string.Format("File:{0} Changed at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
-                    Console.WriteLine($"File Changed. Name: {e.Name}");
-
-                  //  listQueue.Remove(fullPath);
-/*
-                    if (listQueue.Count == 0)
-                    {
-                        break;
-                    }*/
-
-
-
+                    listlisDetailText = listDetailText(e.FullPath, e.Name);
+                    camera(listlisDetailText, cam1, e.Name);
+                    camera(listlisDetailText, cam2, e.Name);
                 }
+                else
+                {
+                    Logger.Log(string.Format(_filewatcher.Path));
+                }
+                Logger.Log(string.Format("File:{0} Changed at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
+                Console.WriteLine($"File Changed. Name: {e.Name}");
 
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                Console.WriteLine(exception);
+                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
+                Console.WriteLine(ex.ToString());
             }
             finally
             {
@@ -148,26 +80,50 @@ namespace Filewatcherservice
 
 
         }
-        void _filewatcher_Created(object sender, FileSystemEventArgs e)
+
+        public void camera(List<DetailText> listlisDetailText, string camera, string name)
         {
-            Logger.Log(string.Format("File:{0} Created at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
+            try
+            {
+
+                foreach (DetailText itemText in listlisDetailText)
+
+                {
+                    List<DetailImage> listImageTran = listImageTransaction(camera + name.Remove(name.Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime());
+                    foreach (DetailImage itemimage in listImageTran)
+                    {
+                        string getFilName = Path.GetFileName(itemimage.getPathImage());
+                        string pasrtSave = PathLocation(ouputCam1 + name.Remove(name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+
+                        textToImage(itemimage.getPathImage(), pasrtSave, itemText);
+
+
+
+                       
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
+                Console.WriteLine(ex.ToString());
+            }
+
 
         }
-        void _filewatcher_Renamed(object sender, FileSystemEventArgs e)
-        {
-            Logger.Log(string.Format("File:{0} Renamed at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
 
-        }
-        void _filewatcher_Deleted(object sender, FileSystemEventArgs e)
-        {
-            Logger.Log(string.Format("File:{0} Deleted at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
-
-        }
 
         public static List<DetailImage> listImageTransaction(string partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
         {
+
+
+
             List<DetailImage> listDetailImage = new List<DetailImage>();
-            foreach (string filename in listFileText(partInputImage))
+
+            List<string> listFilename = listNameFileImage(partInputImage);
+
+            foreach (string filename in listFilename)
             {
                 if (filename != null)
                 {
@@ -184,7 +140,7 @@ namespace Filewatcherservice
                         itemDetail.setCamera(arrListStr[2]);
                         string[] description = arrListStr[3].Split(new char[] { '-' });
                         itemDetail.setDescriptioItem(description[0]);
-                        if (IsPhoto(arrListStr[4]))
+                        if (IsImage(arrListStr[4]))
                         {
                             itemDetail.setDescription(description[1] + "_" + arrListStr[4].Remove(arrListStr[4].Length - 4));
                         }
@@ -204,22 +160,10 @@ namespace Filewatcherservice
             return listDetailImage;
 
         }
-        public string GetLine(string fileName, int line)
+        public static void textToImage(string partImage, string pasrtSave, DetailText itemText)
         {
-            using (var sr = new StreamReader(fileName))
-            {
-                for (int i = 1; i < line; i++)
-                {
 
-                    sr.ReadLine();
-                }
-                return sr.ReadLine();
-            }
-        }
-
-
-        static void AddTextUatermark(string partImage, string pasrtSave, string timetransaction, string datetransaction, string cassette, string transNo)
-        {
+       
             try
             {
 
@@ -232,11 +176,10 @@ namespace Filewatcherservice
                     StringFormat stringformat1 = new StringFormat();
                     stringformat1.Alignment = StringAlignment.Far;
                     Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
-                    graphicImage.DrawString(cassette, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(5, 30));
-                    graphicImage.DrawString(datetransaction, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 660));
-                    graphicImage.DrawString(timetransaction, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 690));
-                    graphicImage.DrawString("Trans No: " + transNo, new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(600, 690));
-
+                    graphicImage.DrawString(itemText.getCurrentDate(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(5, 30));
+                    graphicImage.DrawString(itemText.getCurrentDate(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 660));
+                    graphicImage.DrawString(itemText.getCurrentTime(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 690));
+                    graphicImage.DrawString("Trans No: " + itemText.getTransNo(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(600, 690));
                     img.Save(pasrtSave);
 
                 }
@@ -248,17 +191,34 @@ namespace Filewatcherservice
 
             }
         }
-        public static List<DetailText> listDetailText(string fullPath, int indexlines)
+
+
+        public static List<DetailText> listDetailText(string fullPath, string name)
         {
+
+
+
             CultureInfo provider = CultureInfo.InvariantCulture;
-            string getFilName = Path.GetFileName(fullPath);
             List<DetailText> listDetail = new List<DetailText>();
             DetailText detail = new DetailText();
+            if (nameText == null)
+            {
+                nameText = name;
+            }
+            if (!nameText.Equals(name))
+            {
+                nameText = name;
+                indexline = 0;
+
+            }
+
+            Thread.Sleep(300);
+
             using (StreamReader reader = new StreamReader(new FileStream(fullPath, FileMode.Open)))
             {
 
 
-                for (int i = 1; i <= indexlines; i++)
+                for (int i = 1; i <= indexline; i++)
                 {
 
                     reader.ReadLine();
@@ -273,7 +233,7 @@ namespace Filewatcherservice
 
                     if (line.Contains("CASH REQUEST:"))
                     {
-                        detail.setStartTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        detail.setStartTime(DateTime.ParseExact(name.Remove(name.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
                         string cassette = line.Remove(0, 23);
                         detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
 
@@ -293,7 +253,7 @@ namespace Filewatcherservice
                     }
                     if (line.Contains("CASH TAKEN"))
                     {
-                        detail.setEndTime(DateTime.ParseExact(getFilName.Remove(getFilName.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        detail.setEndTime(DateTime.ParseExact(name.Remove(name.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
                         listDetail.Add(detail);
                         detail = new DetailText();
                     }
@@ -304,7 +264,7 @@ namespace Filewatcherservice
 
             return listDetail;
         }
-        private string PathLocation(string value)
+        public static string PathLocation(string value)
         {
             try
             {
@@ -324,42 +284,28 @@ namespace Filewatcherservice
 
 
         }
-
-        public static bool IsPhoto(string fileName)
+        /*Hàm kiểm tram imge file jpg*/
+        public static bool IsImage(string fileName)
         {
-            List<string> list = GetAllPhotosExtensions();
-            string filename = fileName.ToLower();
             bool isThere = false;
-            foreach (string item in list)
+            if (fileName.ToLower().EndsWith(".jpg"))
             {
-                if (filename.EndsWith(item))
-                {
-                    isThere = true;
-                    break;
-                }
+                isThere = true;
             }
             return isThere;
-        }
-        public static List<string> GetAllPhotosExtensions()
-        {
-            List<string> list = new List<string>();
-            list.Add(".jpg");
-     /*       list.Add(".png");
-            list.Add(".bmp");
-            list.Add(".jpeg");*/
 
-            return list;
         }
 
 
-        public static List<string> listFileText(string path)
+        /*Hàm tìm tên file image*/
+        public static List<string> listNameFileImage(string path)
 
         {
             var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
             List<string> imageFiles = new List<string>();
             foreach (string filename in files)
             {
-                if (IsPhoto(filename))
+                if (IsImage(filename))
                 {
                     imageFiles.Add(filename);
                 }
@@ -369,27 +315,19 @@ namespace Filewatcherservice
             return imageFiles;
         }
 
-        public static bool IsPhototext(string fileName)
+
+        /*Hàm kiểm tra file text jrn*/
+        public static bool IsTextJrn(string fileName)
         {
-            List<string> list = GetAllPhotosExtensiontext();
-            string filename = fileName.ToLower();
             bool isThere = false;
-            foreach (string item in list)
+            if (fileName.ToLower().EndsWith(".jrn"))
             {
-                if (filename.EndsWith(item))
-                {
-                    isThere = true;
-                    break;
-                }
+                isThere = true;
             }
             return isThere;
+
         }
-        public static List<string> GetAllPhotosExtensiontext()
-        {
-            List<string> list = new List<string>();
-            list.Add(".jrn");
-            return list;
-        }
+
 
 
     }
