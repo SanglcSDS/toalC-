@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classtnode.cs" />
     <Compile Include="DetailImage.cs" />
     <Compile Include="DetailText.cs" />
     <Compile Include="Logger.cs" />

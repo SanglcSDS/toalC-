@@ -876,3 +876,356 @@ The process failed: System.IndexOutOfRangeException: Index was outside the bound
 File:20211022.jrn Changed at time:11/4/2021 9:00:16 AM
 File:20211022.jrn Changed at time:11/4/2021 9:10:45 AM
 File:20211022.jrn Changed at time:11/4/2021 9:19:56 AM
+File:20211022.jrn Changed at time:11/4/2021 9:47:18 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 156
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 156
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 9:47:55 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 159
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 159
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:18:30 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:23:12 AM
+File:20211022.jrn Changed at time:11/4/2021 10:24:56 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 160
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 160
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:28:29 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 160
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 160
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:31:10 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 160
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 160
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:39:10 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 161
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 161
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:50:16 AM
+File:20211022.jrn Changed at time:11/4/2021 10:51:15 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 161
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:52:20 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 161
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 161
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:52:44 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 162
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 162
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:56:24 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 167
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 167
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 10:59:32 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 11:02:12 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 11:05:57 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 11:14:59 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 166
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 166
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 11:21:44 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 162
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 162
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 11:25:57 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 11:29:50 AM
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 250
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\20211019.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.OpenWrite(String path)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 250
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 250
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 250
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 254
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.OpenWrite(String path)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 255
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.OpenWrite(String path)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 255
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.OpenWrite(String path)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 255
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 255
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.IO.IOException: The process cannot access the file 'C:\Filewatcherservice\JOURNAL\20211022.jrn' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 252
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+File:20211022.jrn Changed at time:11/4/2021 1:49:26 PM
+File:20211022.jrn Changed at time:11/4/2021 1:50:13 PM
+File:20211022.jrn Changed at time:11/4/2021 1:50:48 PM
+File:20211022.jrn Changed at time:11/4/2021 1:51:20 PM
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 258
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 258
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Append access can be requested only in write-only mode.
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 248
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Append access can be requested only in write-only mode.
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 248
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Append access can be requested only in write-only mode.
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 248
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 258
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+The process failed: System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 258
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 60
+File:20211022.jrn Changed at time:11/4/2021 2:15:10 PM
+File:20211022.jrn Changed at time:11/4/2021 2:15:39 PM
+File:20211022.jrn Changed at time:11/4/2021 2:15:44 PM
+File:20211022.jrn Changed at time:11/4/2021 2:15:55 PM
+File:20211022.jrn Changed at time:11/4/2021 2:15:57 PM
+File:20211022.jrn Changed at time:11/4/2021 2:16:24 PM
+File:20211022.jrn Changed at time:11/4/2021 2:16:36 PM
+File:20211022.jrn Changed at time:11/4/2021 2:17:12 PM
+File:20211022.jrn Changed at time:11/4/2021 2:17:23 PM
+File:20211022.jrn Changed at time:11/4/2021 2:18:11 PM
+File:20211022.jrn Changed at time:11/4/2021 2:18:20 PM
+File:20211022.jrn Changed at time:11/4/2021 2:18:36 PM
+File:20211022.jrn Changed at time:11/4/2021 2:18:44 PM
+File:20211022.jrn Changed at time:11/4/2021 2:18:56 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 153
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 153
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 153
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 2:29:38 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 153
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 153
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 101
+File:20211022.jrn Changed at time:11/4/2021 2:37:06 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 155
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 155
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 2:39:40 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 155
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 155
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 2:41:40 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 2:47:30 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 2:48:32 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 2:49:38 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 163
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 2:50:44 PM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name)
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name)
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name)
+File:20211022.jrn Changed at time:11/4/2021 3:07:54 PM
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 3:08:35 PM
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 158
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 3:12:37 PM
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.ArgumentOutOfRangeException: startIndex must be less than length of string.
+Parameter name: startIndex
+   at System.String.Remove(Int32 startIndex)
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 168
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211022.jrn Changed at time:11/4/2021 3:19:10 PM
+File:20211022.jrn Changed at time:11/4/2021 3:21:39 PM
+File:20211022.jrn Changed at time:11/4/2021 3:23:05 PM
+File:20211019.jrn Changed at time:11/4/2021 3:24:12 PM
+File:20211022.jrn Changed at time:11/4/2021 3:38:14 PM
+File:20211019.jrn Changed at time:11/4/2021 3:38:38 PM
