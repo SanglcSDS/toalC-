@@ -50,20 +50,17 @@ namespace Filewatcherservice
 
                 if (IsTextJrn(e.Name))
                 {
-
-          
-
-
                     listlisDetailText = listDetailText(e.FullPath, e.Name);
-                    camera(listlisDetailText, cam1, e.Name);
-                    camera(listlisDetailText, cam2, e.Name);
+                    camera(listlisDetailText, cam1, ouputCam1, e.Name);
+
+                    camera(listlisDetailText, cam2, ouputCam2, e.Name);
                 }
                 else
                 {
                     Logger.Log(string.Format(_filewatcher.Path));
                 }
                 Logger.Log(string.Format("File:{0} Changed at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
-                Console.WriteLine($"File Changed. Name: {e.Name}");
+                Console.WriteLine($"File Changed. Name: {e.Name}"+ " index line:"+ indexline);
 
             }
             catch (Exception ex)
@@ -81,7 +78,7 @@ namespace Filewatcherservice
 
         }
 
-        public void camera(List<DetailText> listlisDetailText, string camera, string name)
+        public void camera(List<DetailText> listlisDetailText, string camera, string ouputCam, string name)
         {
             try
             {
@@ -89,11 +86,16 @@ namespace Filewatcherservice
                 foreach (DetailText itemText in listlisDetailText)
 
                 {
+                   
+                    
                     List<DetailImage> listImageTran = listImageTransaction(camera + name.Remove(name.Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime());
+                   
+                    
+                    
                     foreach (DetailImage itemimage in listImageTran)
                     {
                         string getFilName = Path.GetFileName(itemimage.getPathImage());
-                        string pasrtSave = PathLocation(ouputCam1 + name.Remove(name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+                        string pasrtSave = PathLocation(ouputCam + name.Remove(name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
 
                         textToImage(itemimage.getPathImage(), pasrtSave, itemText);
 
@@ -106,6 +108,7 @@ namespace Filewatcherservice
             }
             catch (Exception ex)
             {
+
                 Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
                 Console.WriteLine(ex.ToString());
             }

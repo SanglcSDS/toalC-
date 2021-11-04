@@ -518,3 +518,361 @@ File:20211022.jrn Changed at time:11/3/2021 10:38:26 PM
 File:20211022.jrn Changed at time:11/3/2021 10:39:27 PM
 File:20211022.jrn Changed at time:11/3/2021 10:39:56 PM
 File:20211022.jrn Changed at time:11/3/2021 10:39:57 PM
+File:20211022.jrn Changed at time:11/4/2021 8:12:54 AM
+File:20211022.jrn Changed at time:11/4/2021 8:13:09 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 143
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 92
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 143
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 92
+File:20211022.jrn Changed at time:11/4/2021 8:13:51 AM
+File:20211022.jrn Changed at time:11/4/2021 8:15:54 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 143
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 92
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 143
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 92
+File:20211022.jrn Changed at time:11/4/2021 8:16:43 AM
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+File:20211022.jrn Changed at time:11/4/2021 8:28:45 AM
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 143
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 92
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 183
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 143
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 92
+File:20211022.jrn Changed at time:11/4/2021 8:29:36 AM
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 148
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 94
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 148
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 94
+File:20211022.jrn Changed at time:11/4/2021 8:31:30 AM
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+File:20211022.jrn Changed at time:11/4/2021 8:34:29 AM
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+The process failed: System.ArgumentNullException: Value cannot be null.
+Parameter name: filename
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 188
+File:20211022.jrn Changed at time:11/4/2021 8:35:03 AM
+File:20211022.jrn Changed at time:11/4/2021 8:35:26 AM
+File:20211022.jrn Changed at time:11/4/2021 8:35:44 AM
+File:20211022.jrn Changed at time:11/4/2021 8:35:59 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 148
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 94
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 148
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 94
+File:20211022.jrn Changed at time:11/4/2021 8:36:20 AM
+File:20211022.jrn Changed at time:11/4/2021 8:38:12 AM
+File:20211022.jrn Changed at time:11/4/2021 8:38:52 AM
+File:20211022.jrn Changed at time:11/4/2021 8:59:13 AM
+File:20211022.jrn Changed at time:11/4/2021 8:59:36 AM
+File:20211022.jrn Changed at time:11/4/2021 8:59:51 AM
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 148
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 94
+The process failed: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 148
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 94
+File:20211022.jrn Changed at time:11/4/2021 9:00:16 AM
+File:20211022.jrn Changed at time:11/4/2021 9:10:45 AM
+File:20211022.jrn Changed at time:11/4/2021 9:19:56 AM

@@ -46,6 +46,7 @@ namespace Filewatcherservice
         public void setCassette(string value)
         {
             cassette = value;
+            
         }
 
         public string getTransNo()
@@ -55,7 +56,15 @@ namespace Filewatcherservice
 
         public void setTransNo(string value)
         {
-            transNo = value;
+            if (value == null)
+            {
+                transNo = "";
+            }
+            else
+            {
+                transNo = value;
+            }
+           
         }
         public string getCurrentTime()
         {
