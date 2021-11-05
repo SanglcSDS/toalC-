@@ -82,7 +82,33 @@ namespace Filewatcherservice
 
 
 
-      
+        /*----------------------------------------------------*/
+
+        /*      public static List<DetailText> listDetailText(string fullPath, string name)
+              {
+
+
+
+                  using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
+                  {
+                      using (StreamReader reader = new StreamReader(stream))
+                      {
+
+
+                          while (!reader.EndOfStream)
+                          {
+
+                              Console.WriteLine(reader.ReadLine());
+
+
+
+                          }
+                      }
+                  }
+
+                  return listDetail;
+              }*/
+        /*Hàm tạo mới folder*/
 
     }
 }

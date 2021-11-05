@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Timers;
 using System.Threading;
+using System.Drawing.Drawing2D;
 
 namespace Filewatcherservice
 {
@@ -108,12 +109,12 @@ namespace Filewatcherservice
                     foreach (DetailImage itemimage in listImageTran)
                     {
                         string getFilName = Path.GetFileName(itemimage.getPathImage());
-                       
-                            string pasrtSave = PathLocation(ouputCam + name.Remove(name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
 
-                            textToImage(itemimage.getPathImage(), pasrtSave, itemText);
-                        
-                     
+                        string pasrtSave = PathLocation(ouputCam + name.Remove(name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+
+                        textToImage(itemimage.getPathImage(), pasrtSave, itemText);
+
+
 
 
                     }
@@ -129,7 +130,7 @@ namespace Filewatcherservice
 
         }
 
-
+        /* tìm kiếm danh sánh ảnh trong khoảng thời gian*/
         public static List<DetailImage> listImageTransaction(string partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
         {
 
@@ -160,8 +161,8 @@ namespace Filewatcherservice
 
                         if (arrListStr.Length <= 4)
                         {
-                         /*   itemDetail.setDescription(description[1].Remove(arrListStr[1].Length - 4));
-                            itemDetail.setCardNo("");*/
+                            /*   itemDetail.setDescription(description[1].Remove(arrListStr[1].Length - 4));
+                               itemDetail.setCardNo("");*/
 
                         }
 
@@ -196,6 +197,12 @@ namespace Filewatcherservice
 
 
         }
+        /*ghi chử vào ảnh*/
+
+
+
+
+
         public static void textToImage(string partImage, string pasrtSave, DetailText itemText)
         {
 
@@ -203,7 +210,9 @@ namespace Filewatcherservice
             try
             {
 
+
                 Image img;
+
                 using (var bmpTemp = new Bitmap(partImage))
                 {
                     img = new Bitmap(bmpTemp);
@@ -212,10 +221,13 @@ namespace Filewatcherservice
                     StringFormat stringformat1 = new StringFormat();
                     stringformat1.Alignment = StringAlignment.Far;
                     Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
-                    graphicImage.DrawString(itemText.getCurrentDate(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(5, 30));
-                    graphicImage.DrawString(itemText.getCurrentDate(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 660));
-                    graphicImage.DrawString(itemText.getCurrentTime(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(1150, 690));
-                    graphicImage.DrawString("Trans No: " + itemText.getTransNo(), new Font("arail", 12, FontStyle.Bold), new SolidBrush(stringColor1), new Point(600, 690));
+                    Color stringColor2 = ColorTranslator.FromHtml("#000000");
+                    graphicImage.DrawImage(ImageFromText(itemText.getCassetteo(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(5, 30));
+                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1150, 660));
+                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentTime(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1150, 690));
+                    graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(600, 690));
+
+
                     img.Save(pasrtSave);
 
                 }
@@ -223,10 +235,52 @@ namespace Filewatcherservice
             }
             catch (Exception ex)
             {
+                Console.WriteLine(string.Format("The process failed: {0}", ex.ToString()));
                 Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
 
             }
         }
+        public static Image ImageFromText(string strText, Font fnt, Color clrFore, Color clrBack, int blurAmount)
+        {
+            Bitmap bmpOut = null;
+
+            using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
+            {
+                SizeF sz = g.MeasureString(strText, fnt);
+                using (Bitmap bmp = new Bitmap((int)sz.Width, (int)sz.Height))
+                using (Graphics gBmp = Graphics.FromImage(bmp))
+                using (SolidBrush brBack = new SolidBrush(Color.FromArgb(clrBack.R, clrBack.G, clrBack.B)))
+                using (SolidBrush brFore = new SolidBrush(clrFore))
+                {
+                    gBmp.SmoothingMode = SmoothingMode.HighQuality;
+                    gBmp.InterpolationMode = InterpolationMode.HighQualityBilinear;
+                    gBmp.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+
+                    gBmp.DrawString(strText, fnt, brBack, 0, 0);
+
+                    // make bitmap we will return.
+                    bmpOut = new Bitmap(bmp.Width + blurAmount, bmp.Height + blurAmount);
+                    using (Graphics gBmpOut = Graphics.FromImage(bmpOut))
+                    {
+                        gBmpOut.SmoothingMode = SmoothingMode.HighQuality;
+                        gBmpOut.InterpolationMode = InterpolationMode.HighQualityBilinear;
+                        gBmpOut.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+
+                        // smear image of background of text about to make blurred background "halo"
+                        for (int x = 0; x <= blurAmount; x++)
+                            for (int y = 0; y <= blurAmount; y++)
+                                gBmpOut.DrawImageUnscaled(bmp, x, y);
+
+                        // draw actual text
+                        gBmpOut.DrawString(strText, fnt, brFore, blurAmount / 2, blurAmount / 2);
+                    }
+                }
+            }
+
+            return bmpOut;
+        }
+
+        /*lấy ra danh sách text */
         public static List<DetailText> listDetailText(string fullPath, string name)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -238,13 +292,14 @@ namespace Filewatcherservice
             }
             if (!nameText.Equals(name))
             {
-                File.Delete(fullPath);
+
                 nameText = name;
                 indexline = 0;
 
+
             }
 
-           Thread.Sleep(300);
+            Thread.Sleep(300);
             using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
             {
                 using (StreamReader reader = new StreamReader(stream))
@@ -299,31 +354,6 @@ namespace Filewatcherservice
         }
 
 
-        /*      public static List<DetailText> listDetailText(string fullPath, string name)
-              {
-
-
-
-                  using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
-                  {
-                      using (StreamReader reader = new StreamReader(stream))
-                      {
-
-
-                          while (!reader.EndOfStream)
-                          {
-
-                              Console.WriteLine(reader.ReadLine());
-
-
-
-                          }
-                      }
-                  }
-
-                  return listDetail;
-              }*/
-        /*Hàm tạo mới folder*/
         public static string PathLocation(string value)
         {
             try
@@ -389,6 +419,6 @@ namespace Filewatcherservice
         }
     }
 
-      
+
 }
 
