@@ -1331,3 +1331,91 @@ File:20211019.jrn Changed at time:11/5/2021 2:03:07 PM
 File Changed. Name: 20211019.jrn index line:150
 File:20211019.jrn Changed at time:11/5/2021 2:04:05 PM
 File Changed. Name: 20211019.jrn index line:150
+The process failed: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Filewatcherservice\Camera\CAM1\20211109'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   at System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   at Filewatcherservice.FileWatcher.listNameFileImage(String path) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 386
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 134
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Filewatcherservice\Camera\CAM2\20211109'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   at System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   at Filewatcherservice.FileWatcher.listNameFileImage(String path) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 386
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 134
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211109.jrn Changed at time:11/9/2021 11:10:05 AM
+File Changed. Name: 20211109.jrn index line:292
+File:20211109.jrn Changed at time:11/9/2021 11:10:05 AM
+File Changed. Name: 20211109.jrn index line:292
+File:20211109.jrn Changed at time:11/9/2021 11:10:06 AM
+File Changed. Name: 20211109.jrn index line:292
+File:20211109.jrn Changed at time:11/9/2021 11:10:06 AM
+File Changed. Name: 20211109.jrn index line:292
+The process failed: System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at Filewatcherservice.FileWatcher.listDetailText(String fullPath, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 315
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 61
+The process failed: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Filewatcherservice\Camera\CAM1\20211109'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   at System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   at Filewatcherservice.FileWatcher.listNameFileImage(String path) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 386
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 134
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+The process failed: System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Filewatcherservice\Camera\CAM2\20211109'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler, Boolean checkHost)
+   at System.IO.Directory.GetFiles(String path, String searchPattern, SearchOption searchOption)
+   at Filewatcherservice.FileWatcher.listNameFileImage(String path) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 386
+   at Filewatcherservice.FileWatcher.listImageTransaction(String partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 134
+   at Filewatcherservice.FileWatcher.camera(List`1 listlisDetailText, String camera, String ouputCam, String name) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 103
+File:20211109.jrn Changed at time:11/9/2021 11:10:40 AM
+File Changed. Name: 20211109.jrn index line:292
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\84936\source\repos\demo\Filewatcherservice\FileWatcher.cs:line 223
+File:20211109.jrn Changed at time:11/9/2021 3:26:31 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 4:35:18 PM
+File Changed. Name: 20211109.jrn index line:0
+File:20211109.jrn Changed at time:11/9/2021 4:51:18 PM
+File Changed. Name: 20211109.jrn index line:684

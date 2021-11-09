@@ -38,7 +38,7 @@ namespace Filewatcherservice
             terminalId = value;
         }
 
-        public string getCassetteo()
+        public string getCassette()
         {
             return cassette;
         }
