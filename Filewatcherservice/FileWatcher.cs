@@ -22,6 +22,11 @@ namespace Filewatcherservice
         private static string cam2 = ConfigurationManager.AppSettings["cam2"];
         private static string ouputCam1 = ConfigurationManager.AppSettings["ouputCam1"];
         private static string ouputCam2 = ConfigurationManager.AppSettings["ouputCam2"];
+        private static string cashRequest = ConfigurationManager.AppSettings["cashRequest"];
+        private static string cashTake = ConfigurationManager.AppSettings["cashTake"];
+        private static string transNo = ConfigurationManager.AppSettings["transNo"];
+        private static string dateTime = ConfigurationManager.AppSettings["dateTime"];
+
         private static int indexline;
         private static string nameText = null;
         public FileWatcher()
@@ -58,11 +63,11 @@ namespace Filewatcherservice
 
                     while (queueName.Count > 0)
                     {
-                        List<TextLine> listlisDetailText = listDetailText(e.FullPath, e.Name, "CASH REQUEST:", "CASH TAKEN");
-                        // TextLine,string namFile, string cassette, string transNo, string dateTime, string CashRequest, string CashTake
-                        List<DetailText> listlisDetailTe= listDetailText(listlisDetailText,e.Name, "TRANS NO", "DATE  TIME", "CASH REQUEST:", "CASH TAKEN");
-                        //  camera(listlisDetailText, cam1, ouputCam1, e.Name);
-                        //  camera(listlisDetailText, cam2, ouputCam2, e.Name);
+                        string fileName = e.Name.Remove(e.Name.Length - 4);
+                        List<TextLine> listlisTextLine = listDetailText(e.FullPath, fileName, cashRequest, cashTake);
+                        List<DetailText> listDetailTexts = listDetailText(listlisTextLine, fileName, transNo, dateTime,  cashRequest, cashTake);
+                        camera(listDetailTexts, cam1, ouputCam1, fileName);
+                        camera(listDetailTexts, cam2, ouputCam2, fileName);
                         queueName.Dequeue();
 
                     }
@@ -82,7 +87,6 @@ namespace Filewatcherservice
             {
 
                 Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
-
                 Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
                 Console.WriteLine(ex.ToString());
             }
@@ -96,7 +100,7 @@ namespace Filewatcherservice
 
         }
 
-        public void camera(List<DetailText> listlisDetailText, string camera, string ouputCam, string name)
+        public void camera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
         {
             try
             {
@@ -104,12 +108,12 @@ namespace Filewatcherservice
                 foreach (DetailText itemText in listlisDetailText)
 
                 {
-                    List<DetailImage> listImageTran = listImageTransaction(camera + name.Remove(name.Length - 4) + "\\", itemText.getStartTime(), itemText.getEndTime());
+                    List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
                     foreach (DetailImage itemimage in listImageTran)
                     {
                         string getFilName = Path.GetFileName(itemimage.getPathImage());
 
-                        string pasrtSave = PathLocation(ouputCam + name.Remove(name.Length - 4) + "\\") + getFilName.Remove(getFilName.Length - 4) + "_" + itemText.getTransNo() + ".jpg";
+                        string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg";
 
                         textToImage(itemimage.getPathImage(), pasrtSave, itemText);
 
@@ -118,7 +122,7 @@ namespace Filewatcherservice
             }
             catch (Exception ex)
             {
-
+                Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
                 Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
                 Console.WriteLine(ex.ToString());
             }
@@ -129,10 +133,6 @@ namespace Filewatcherservice
         /* tìm kiếm danh sánh ảnh trong khoảng thời gian*/
         public static List<DetailImage> listImageTransaction(string partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
         {
-
-
-
-
             List<DetailImage> listDetailImage = new List<DetailImage>();
 
             List<string> listFilename = listNameFileImage(partInputImage);
@@ -145,52 +145,18 @@ namespace Filewatcherservice
                     CultureInfo provider = CultureInfo.InvariantCulture;
                     string getFilName = Path.GetFileName(filename);
                     string[] arrListStr = getFilName.Split(new char[] { '_' });
-
-                    itemDetail.setTerminalIdy(arrListStr[0]);
                     DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
                     if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                     {
-                        itemDetail.setCurrentDate(DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider));
                         itemDetail.setPathImage(filename);
-                        itemDetail.setCamera(arrListStr[2]);
-                        string[] description = arrListStr[3].Split(new char[] { '-' });
-
-                        if (arrListStr.Length <= 4)
-                        {
-                            /*   itemDetail.setDescription(description[1].Remove(arrListStr[1].Length - 4));
-                               itemDetail.setCardNo("");*/
-
-                        }
-
-                        else
-                        {
-                            if (IsImage(arrListStr[4]))
-                            {
-                                itemDetail.setDescription(description[1] + "_" + arrListStr[4].Remove(arrListStr[4].Length - 4));
-                            }
-                            else
-                            {
-                                itemDetail.setDescription(description[1] + "_" + arrListStr[4]);
-                                itemDetail.setCardNo(arrListStr[5].Remove(arrListStr[5].Length - 4));
-
-                            }
-
-                        }
-
                         listDetailImage.Add(itemDetail);
                     }
 
 
-
                 }
-
-
 
             }
             return listDetailImage;
-
-
-
 
         }
         /*ghi chử vào ảnh*/
@@ -212,15 +178,22 @@ namespace Filewatcherservice
                 using (var bmpTemp = new Bitmap(partImage))
                 {
                     img = new Bitmap(bmpTemp);
+                    string Cassette = "";
+                    if (itemText.getCassette().Length >= 8)
+                    {
+                        string itemcassette = itemText.getCassette();
+                        Cassette = "1:" + itemcassette.Substring(0, 2) + "; 2:" + itemcassette.Substring(2, 2) + "; 3:" + itemcassette.Substring(4, 2) + "; 4:" + itemcassette.Substring(6, 2);
+
+                    }
 
                     Graphics graphicImage = Graphics.FromImage(img);
                     StringFormat stringformat1 = new StringFormat();
                     stringformat1.Alignment = StringAlignment.Far;
                     Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
                     Color stringColor2 = ColorTranslator.FromHtml("#000000");
-                    graphicImage.DrawImage(ImageFromText(itemText.getCassette(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(5, 30));
-                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1150, 660));
-                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentTime(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1150, 690));
+                    graphicImage.DrawImage(ImageFromText(Cassette, new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(5, 30));
+                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1100, 690));
+                    //   graphicImage.DrawImage(ImageFromText(itemText.getCurrentTime(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1150, 690));
                     graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(600, 690));
 
 
@@ -231,6 +204,7 @@ namespace Filewatcherservice
             }
             catch (Exception ex)
             {
+                Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
                 Console.WriteLine(string.Format("The process failed: {0}", ex.ToString()));
                 Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
 
@@ -277,45 +251,38 @@ namespace Filewatcherservice
         }
 
 
-        public static List<DetailText> listDetailText(List<TextLine> TextLine,string namFile, string transNo, string dateTime, string CashRequest, string CashTake)
+        public static List<DetailText> listDetailText(List<TextLine> TextLine, string fileName, string transNo, string dateTime, string cashRequest, string cashTake)
         {
             CultureInfo provider = CultureInfo.InvariantCulture;
             List<DetailText> listDetail = new List<DetailText>();
-           
+
             foreach (TextLine itemTextLine in TextLine)
             {
                 DetailText detail = new DetailText();
 
                 foreach (string itemline in itemTextLine.getLine())
                 {
-                   
-
-                    if (itemline.Contains(CashRequest))
+                    string a = @"dddd";
+                    if (itemline.Contains(cashRequest))
                     {
-                        string itemcassette = itemline.Substring(itemline.LastIndexOf(@":") + 1);
-
-                        detail.setStartTime(DateTime.ParseExact(namFile.Remove(namFile.Length - 4) + itemline.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                     
-                        detail.setCassette("1:" + itemcassette.Substring(0, 2) + "; 2:" + itemcassette.Substring(2, 2) + "; 3:" + itemcassette.Substring(4, 2) + "; 4:" + itemcassette.Substring(6, 2));
+                        detail.setStartTime(DateTime.ParseExact(fileName + itemline.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        detail.setCassette(itemline.Substring(itemline.LastIndexOf(@":") + 1).Trim());
 
                     }
                     if (itemline.Contains(transNo))
                     {
-                        detail.setTransNo(itemline.Substring(itemline.LastIndexOf(@":") + 1));
+                        detail.setTransNo(itemline.Substring(itemline.LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
                     }
                     if (itemline.Contains(dateTime))
                     {
-                        string itemdateTime = itemline.Substring(itemline.LastIndexOf(@":") + 1);
 
-                        detail.setCurrentDate(itemline.Substring(itemdateTime.IndexOf(@" ")));
-                        detail.setCurrentTime(itemline.Substring(itemdateTime.LastIndexOf(@" ")));
+                        detail.setCurrentDate(itemline.Substring(itemline.LastIndexOf(@":") + 1).Trim());
                     }
-                    if (itemline.Contains(CashTake))
+                    if (itemline.Contains(cashTake))
                     {
-                        detail.setEndTime(DateTime.ParseExact(namFile.Remove(namFile.Length - 4) + itemline.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                     
-                    }
+                        detail.setEndTime(DateTime.ParseExact(fileName + itemline.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
 
+                    }
 
                 }
                 listDetail.Add(detail);
@@ -326,80 +293,7 @@ namespace Filewatcherservice
         }
 
         /*lấy ra danh sách text */
-        /*    public static List<DetailText> listDetailText(string fullPath, string name)
-            {
-                CultureInfo provider = CultureInfo.InvariantCulture;
-                List<DetailText> listDetail = new List<DetailText>();
-                DetailText detail = new DetailText();
-                if (nameText == null)
-                {
-                    nameText = name;
-                }
-                if (!nameText.Equals(name))
-                {
 
-                    nameText = name;
-                    indexline = 0;
-
-
-                }
-
-                Thread.Sleep(300);
-                using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
-                {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        for (int i = 1; i <= indexline; i++)
-                        {
-
-                            reader.ReadLine();
-                        }
-                        string line;
-
-                        while (!reader.EndOfStream)
-                        {
-
-                            //   Console.WriteLine(reader.ReadLine());
-                            indexline = indexline + 1;
-                            line = reader.ReadLine();
-
-                            if (line.Contains("CASH REQUEST:"))
-                            {
-                               string test = line.Substring(line.LastIndexOf(@":") + 1);
-                                Console.WriteLine(test);
-
-                                detail.setStartTime(DateTime.ParseExact(name.Remove(name.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                                string cassette = line.Remove(0, 23);
-                                detail.setCassette("1:" + cassette.Substring(0, 2) + "; 2:" + cassette.Substring(2, 2) + "; 3:" + cassette.Substring(4, 2) + "; 4:" + cassette.Substring(6, 2));
-
-                            }
-                            if (detail.getCassetteo() != null)
-                            {
-                                if (line.Contains("TRANS NO"))
-                                {
-                                    detail.setTransNo(line.Remove(0, 14));
-                                }
-                                if (line.Contains("DATE  TIME"))
-                                {
-                                    string dateTime = line.Substring(13, 20);
-                                    detail.setCurrentDate(dateTime.Substring(1, 10));
-                                    detail.setCurrentTime(dateTime.Substring(12, 8));
-                                }
-                            }
-                            if (line.Contains("CASH TAKEN"))
-                            {
-                                detail.setEndTime(DateTime.ParseExact(name.Remove(name.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                                listDetail.Add(detail);
-                                detail = new DetailText();
-                            }
-                        }
-
-
-                    }
-                }
-
-                return listDetail;
-            }*/
 
         public static List<TextLine> listDetailText(string fullPath, string name, string CashRequest, string CashTake)
         {
@@ -407,9 +301,6 @@ namespace Filewatcherservice
             List<TextLine> listTextLine = new List<TextLine>();
             List<string> listString = new List<string>();
             TextLine detailitem = new TextLine();
-
-
-
             if (nameText == null)
             {
                 nameText = name;
@@ -422,7 +313,6 @@ namespace Filewatcherservice
 
 
             }
-
             //  Thread.Sleep(300);
             using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
             {

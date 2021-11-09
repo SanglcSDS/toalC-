@@ -110,5 +110,83 @@ namespace Filewatcherservice
               }*/
         /*Hàm tạo mới folder*/
 
+
+
+        /*    public static List<DetailText> listDetailText(string fullPath, string name)
+        {
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            List<DetailText> listDetail = new List<DetailText>();
+            DetailText detail = new DetailText();
+            if (nameText == null)
+            {
+                nameText = name;
+            }
+            if (!nameText.Equals(name))
+            {
+
+                nameText = name;
+                indexline = 0;
+
+
+            }
+
+            Thread.Sleep(300);
+            using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    for (int i = 1; i <= indexline; i++)
+                    {
+
+                        reader.ReadLine();
+                    }
+                    string line;
+
+                    while (!reader.EndOfStream)
+                    {
+
+                        //   Console.WriteLine(reader.ReadLine());
+                        indexline = indexline + 1;
+                        line = reader.ReadLine();
+
+                        if (line.Contains("CASH REQUEST:"))
+                        {
+                           string test = line.Substring(line.LastIndexOf(@":") + 1);
+                            Console.WriteLine(test);
+
+                            detail.setStartTime(DateTime.ParseExact(name.Remove(name.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                            string cassette = line.Remove(0, 23);
+                            detail.setCassette( );
+
+                        }
+                        if (detail.getCassetteo() != null)
+                        {
+                            if (line.Contains("TRANS NO"))
+                            {
+                                detail.setTransNo(line.Remove(0, 14));
+                            }
+                            if (line.Contains("DATE  TIME"))
+                            {
+                                string dateTime = line.Substring(13, 20);
+                                detail.setCurrentDate(dateTime.Substring(1, 10));
+                                detail.setCurrentTime(dateTime.Substring(12, 8));
+                            }
+                        }
+                        if (line.Contains("CASH TAKEN"))
+                        {
+                            detail.setEndTime(DateTime.ParseExact(name.Remove(name.Length - 4) + line.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                            listDetail.Add(detail);
+                            detail = new DetailText();
+                        }
+                    }
+
+
+                }
+            }
+
+            return listDetail;
+        }*/
+
+
     }
 }

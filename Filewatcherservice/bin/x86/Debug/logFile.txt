@@ -1419,3 +1419,98 @@ File:20211109.jrn Changed at time:11/9/2021 4:35:18 PM
 File Changed. Name: 20211109.jrn index line:0
 File:20211109.jrn Changed at time:11/9/2021 4:51:18 PM
 File Changed. Name: 20211109.jrn index line:684
+The process failed: System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at Filewatcherservice.FileWatcher.listDetailText(List`1 TextLine, String fileName, String transNo, String dateTime, String CashRequest, String CashTake) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 294
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 63
+The process failed:    at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at Filewatcherservice.FileWatcher.listDetailText(List`1 TextLine, String fileName, String transNo, String dateTime, String CashRequest, String CashTake) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 294
+   at Filewatcherservice.FileWatcher._filewatcher_Changed(Object sender, FileSystemEventArgs e) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 63
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 194
+File:20211109.jrn Changed at time:11/9/2021 9:01:18 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 9:06:09 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 9:17:01 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 9:19:13 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 9:40:37 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 9:42:23 PM
+File Changed. Name: 20211109.jrn index line:684
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+The process failed: System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at System.Drawing.Image.Save(String filename)
+   at Filewatcherservice.FileWatcher.textToImage(String partImage, String pasrtSave, DetailText itemText) in C:\Users\lecon\source\repos\tool\Filewatcherservice\FileWatcher.cs:line 204
+File:20211109.jrn Changed at time:11/9/2021 9:53:00 PM
+File Changed. Name: 20211109.jrn index line:684
+File:20211109.jrn Changed at time:11/9/2021 9:55:54 PM
+File Changed. Name: 20211109.jrn index line:684

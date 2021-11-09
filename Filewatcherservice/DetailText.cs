@@ -73,7 +73,16 @@ namespace Filewatcherservice
 
         public void setCurrentTime(string value)
         {
-            currentTime = value;
+            if (value == null)
+            {
+                currentTime = "";
+            }
+            else
+            {
+                currentTime = value;
+            }
+           
+           
         }
         public string getCurrentDate()
         {
@@ -82,7 +91,15 @@ namespace Filewatcherservice
 
         public void setCurrentDate(string value)
         {
-            currentDate = value;
+            if (value == null)
+            {
+                currentDate = "";
+            }
+            else
+            {
+                currentDate = value;
+            }
+           
         }
 
         public string getPathImage()
