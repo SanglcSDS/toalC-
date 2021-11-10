@@ -65,9 +65,9 @@ namespace Filewatcherservice
                     {
                         string fileName = e.Name.Remove(e.Name.Length - 4);
                         List<TextLine> listlisTextLine = listDetailText(e.FullPath, fileName, cashRequest, cashTake);
-                        List<DetailText> listDetailTexts = listDetailText(listlisTextLine, fileName, transNo, dateTime,  cashRequest, cashTake);
-                        camera(listDetailTexts, cam1, ouputCam1, fileName);
-                        camera(listDetailTexts, cam2, ouputCam2, fileName);
+                        List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, transNo, dateTime, cashRequest, cashTake);
+                        camera(listlisDetailText, cam1, ouputCam1, fileName);
+                        camera(listlisDetailText, cam2, ouputCam2, fileName);
                         queueName.Dequeue();
 
                     }
@@ -105,10 +105,12 @@ namespace Filewatcherservice
             try
             {
 
+
                 foreach (DetailText itemText in listlisDetailText)
 
                 {
                     List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
+
                     foreach (DetailImage itemimage in listImageTran)
                     {
                         string getFilName = Path.GetFileName(itemimage.getPathImage());
@@ -176,6 +178,7 @@ namespace Filewatcherservice
                 Image img;
 
                 using (var bmpTemp = new Bitmap(partImage))
+                using (Font brFore = new Font("Arial", 10, FontStyle.Bold))
                 {
                     img = new Bitmap(bmpTemp);
                     string Cassette = "";
@@ -191,10 +194,9 @@ namespace Filewatcherservice
                     stringformat1.Alignment = StringAlignment.Far;
                     Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
                     Color stringColor2 = ColorTranslator.FromHtml("#000000");
-                    graphicImage.DrawImage(ImageFromText(Cassette, new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(5, 30));
-                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1100, 690));
-                    //   graphicImage.DrawImage(ImageFromText(itemText.getCurrentTime(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(1150, 690));
-                    graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), new Font("Tahoma", 10, FontStyle.Bold), stringColor1, stringColor2, 4), new Point(600, 690));
+                    graphicImage.DrawImage(ImageFromText(Cassette, brFore, stringColor1, stringColor2, 4), new Point(5, 30));
+                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), brFore, stringColor1, stringColor2, 4), new Point(1100, 690));
+                    graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), brFore, stringColor1, stringColor2, 4), new Point(600, 690));
 
 
                     img.Save(pasrtSave);
@@ -212,6 +214,9 @@ namespace Filewatcherservice
         }
         public static Image ImageFromText(string strText, Font fnt, Color clrFore, Color clrBack, int blurAmount)
         {
+            if (strText is null)
+                strText = "#";
+
             Bitmap bmpOut = null;
 
             using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
@@ -262,21 +267,21 @@ namespace Filewatcherservice
 
                 foreach (string itemline in itemTextLine.getLine())
                 {
-                    string a = @"dddd";
                     if (itemline.Contains(cashRequest))
                     {
                         detail.setStartTime(DateTime.ParseExact(fileName + itemline.Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                        detail.setCassette(itemline.Substring(itemline.LastIndexOf(@":") + 1).Trim());
+                        detail.setCassette(itemline.Substring(itemline.LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
 
                     }
                     if (itemline.Contains(transNo))
                     {
                         detail.setTransNo(itemline.Substring(itemline.LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
+
                     }
                     if (itemline.Contains(dateTime))
                     {
 
-                        detail.setCurrentDate(itemline.Substring(itemline.LastIndexOf(@":") + 1).Trim());
+                        detail.setCurrentDate(itemline.Substring(itemline.LastIndexOf(@": ") + 1).Replace(@"\", @"").Trim());
                     }
                     if (itemline.Contains(cashTake))
                     {
@@ -313,7 +318,7 @@ namespace Filewatcherservice
 
 
             }
-            //  Thread.Sleep(300);
+            Thread.Sleep(300);
             using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
             {
                 using (StreamReader reader = new StreamReader(stream))
