@@ -194,6 +194,7 @@ namespace Filewatcherservice
                     stringformat1.Alignment = StringAlignment.Far;
                     Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
                     Color stringColor2 = ColorTranslator.FromHtml("#000000");
+                
                     graphicImage.DrawImage(ImageFromText(Cassette, brFore, stringColor1, stringColor2, 4), new Point(5, 30));
                     graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), brFore, stringColor1, stringColor2, 4), new Point(1100, 690));
                     graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), brFore, stringColor1, stringColor2, 4), new Point(600, 690));
@@ -335,6 +336,7 @@ namespace Filewatcherservice
 
                         indexline = indexline + 1;
                         line = reader.ReadLine();
+                        Console.WriteLine(line);
 
                         if (line.Contains(CashRequest))
                         {
