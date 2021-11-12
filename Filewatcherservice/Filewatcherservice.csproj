@@ -93,6 +93,7 @@
     <Compile Include="DetailText.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="FileWatcher.cs" />
+    <Compile Include="PartImage.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>

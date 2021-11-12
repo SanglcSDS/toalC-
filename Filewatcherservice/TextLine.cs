@@ -8,26 +8,26 @@ namespace Filewatcherservice
 {
    public  class TextLine
     {
-        private int indexLineStart;
-        private int indexLineEnd;
+        private string textStart;
+        private string textEnd;
         private List<string> line;
-        public int getIndexLineStart()
+        public string getTextStart()
         {
-            return indexLineStart;
+            return textStart;
         }
 
-        public void setIndexLineStart(int value)
+        public void setTextStart(string value)
         {
-            indexLineStart = value;
+            textStart = value;
         }
-        public int getIndexLineEnd()
+        public string getTextEnd()
         {
-            return indexLineEnd;
+            return textEnd;
         }
 
-        public void setIndexLineEnd(int value)
+        public void setTextEnd(string value)
         {
-            indexLineEnd = value;
+            textEnd = value;
         }
 
         public List<string> getLine()

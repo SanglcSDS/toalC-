@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Timers;
 using System.Threading;
 using System.Drawing.Drawing2D;
+using System.Collections;
 
 namespace Filewatcherservice
 {
@@ -17,32 +18,37 @@ namespace Filewatcherservice
     {
 
         private FileSystemWatcher _filewatcher;
-        private static string partInputTexts = ConfigurationManager.AppSettings["text"];
-        private static string cam1 = ConfigurationManager.AppSettings["cam1"];
-        private static string cam2 = ConfigurationManager.AppSettings["cam2"];
-        private static string ouputCam1 = ConfigurationManager.AppSettings["ouputCam1"];
-        private static string ouputCam2 = ConfigurationManager.AppSettings["ouputCam2"];
-        private static string cashRequest = ConfigurationManager.AppSettings["cashRequest"];
-        private static string cashTake = ConfigurationManager.AppSettings["cashTake"];
-        private static string transNo = ConfigurationManager.AppSettings["transNo"];
-        private static string dateTime = ConfigurationManager.AppSettings["dateTime"];
+        private static string INPUT_TEXT = ConfigurationManager.AppSettings["text"];
+        private static string CAM1 = ConfigurationManager.AppSettings["cam1"];
+        private static string CAM2 = ConfigurationManager.AppSettings["cam2"];
+        private static string OUPUT_CAM1 = ConfigurationManager.AppSettings["ouputCam1"];
+        private static string OUPUT_CAM2 = ConfigurationManager.AppSettings["ouputCam2"];
+        private static string CASH_REQUEST = ConfigurationManager.AppSettings["cashRequest"];
+        private static string CASH_TAKEN = ConfigurationManager.AppSettings["cashTake"];
+        private static string TRANS_NO = ConfigurationManager.AppSettings["transNo"];
+        private static string DATE_TIME = ConfigurationManager.AppSettings["dateTime"];
+        private static string TRANSACTION_START = ConfigurationManager.AppSettings["transactionStart"];
+        private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
 
         private static int indexline;
         private static string nameText = null;
         public FileWatcher()
         {
-            PathLocation(cam1);
-            PathLocation(cam2);
-            PathLocation(ouputCam1);
-            PathLocation(ouputCam2);
-            _filewatcher = new FileSystemWatcher(PathLocation(partInputTexts));
+            PathLocation(CAM1);
+            PathLocation(CAM2);
+            PathLocation(OUPUT_CAM1);
+            PathLocation(OUPUT_CAM2);
+            PathLocation(INPUT_TEXT);
+            _filewatcher = new FileSystemWatcher(INPUT_TEXT);
             _filewatcher.Changed += new FileSystemEventHandler(_filewatcher_Changed);
+            //    _filewatcher.NotifyFilter = NotifyFilters.FileName;
             _filewatcher.EnableRaisingEvents = true;
 
         }
 
-        List<DetailText> listlisDetailText = new List<DetailText>();
-        Queue<QueueName> queueName = new Queue<QueueName>();
+        Queue queueFullPath = new Queue();
+
+
         public void _filewatcher_Changed(object sender, FileSystemEventArgs e)
         {
 
@@ -50,35 +56,56 @@ namespace Filewatcherservice
             try
             {
                 _filewatcher.Changed -= _filewatcher_Changed;
-
                 _filewatcher.EnableRaisingEvents = false;
-                Console.WriteLine("dòng thứ:" + indexline);
+
 
                 if (IsTextJrn(e.Name))
                 {
-                    QueueName queueNameitem = new QueueName();
-                    queueNameitem.setName(e.Name);
-                    queueNameitem.setFullPath(e.FullPath);
-                    queueName.Enqueue(queueNameitem);
 
-                    while (queueName.Count > 0)
+
+                    queueFullPath.Enqueue(e.FullPath);
+
+                    int Length = queueFullPath.Count;
+                    for (int i = 0; i < Length; i++)
                     {
-                        string fileName = e.Name.Remove(e.Name.Length - 4);
-                        List<TextLine> listlisTextLine = listDetailText(e.FullPath, fileName, cashRequest, cashTake);
-                        List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, transNo, dateTime, cashRequest, cashTake);
-                        camera(listlisDetailText, cam1, ouputCam1, fileName);
-                        camera(listlisDetailText, cam2, ouputCam2, fileName);
-                        queueName.Dequeue();
+                        string fullPath = (string)queueFullPath.Peek();
+
+
+                        string name = fullPath.Substring(fullPath.LastIndexOf(@"\") + 1);
+                        string fileName = name.Remove(name.Length - 4);
+                        List<string> liststring = listDetailText(fullPath, fileName, TRANSACTION_START, TRANSACTION_END);
+                        List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN);
+                        List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN);
+                        List<PartImage> textCam1 = inputCamera(listlisDetailText, CAM1, fileName);
+                        Thread t = new Thread(() =>
+                        {
+                            camera(textCam1, CAM1, OUPUT_CAM1, fileName);
+                        });
+                        t.Start();
+
+                        Thread t2 = new Thread(() =>
+                        {
+                            camera(listlisDetailText, CAM2, OUPUT_CAM2, fileName);
+                        });
+                        t2.Start();
+
+
+
+                        queueFullPath.Dequeue();
 
                     }
+
+
 
                 }
                 else
                 {
+
                     Logger.Log(string.Format(_filewatcher.Path));
                 }
                 Logger.Log(string.Format("File:{0} Changed at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
-                Logger.Log($"File Changed. Name: {e.Name}" + " index line:" + indexline);
+                Logger.Log($"File Changed. Name: {e.Name}" + " index line end:" + indexline);
+                Logger.Log($"---------------------------------------------------------------");
                 Console.WriteLine($"File Changed. Name: {e.Name}" + " index line:" + indexline);
 
 
@@ -100,7 +127,53 @@ namespace Filewatcherservice
 
         }
 
-        public void camera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
+        public static List<PartImage> inputCamera(List<DetailText> listlisDetailText, string camera, string fileName)
+        {
+
+            List<PartImage> listPartImage = new List<PartImage>();
+
+            foreach (DetailText itemText in listlisDetailText)
+
+            {
+                PartImage itemPartImage = new PartImage();
+                itemPartImage.setListDetailImage(listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime()));
+                itemPartImage.setDetailText(itemText);
+                listPartImage.Add(itemPartImage);
+
+
+            }
+
+            return listPartImage;
+
+
+        }
+
+        public void camera(List<PartImage> textCam1 , string ouputCam)
+        {
+            try
+            {
+
+                foreach (PartImage itemimage in textCam1)
+                {
+
+
+                    string getFilName = Path.GetFileName(itemimage.get);
+
+                    string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemimage.getDetailText().getTransNo() + @".jpg";
+
+                    textToImage(itemimage.getPathImage(), pasrtSave, itemimage.getDetailText());
+
+                }
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
+                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
+                Console.WriteLine(ex.ToString());
+            }
+
+
+        }
+        public void camerawwww(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
         {
             try
             {
@@ -109,15 +182,25 @@ namespace Filewatcherservice
                 foreach (DetailText itemText in listlisDetailText)
 
                 {
+
                     List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
 
                     foreach (DetailImage itemimage in listImageTran)
                     {
+
+
                         string getFilName = Path.GetFileName(itemimage.getPathImage());
 
                         string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg";
 
                         textToImage(itemimage.getPathImage(), pasrtSave, itemText);
+
+
+
+
+
+
+
 
                     }
                 }
@@ -132,39 +215,61 @@ namespace Filewatcherservice
 
         }
 
+
         /* tìm kiếm danh sánh ảnh trong khoảng thời gian*/
         public static List<DetailImage> listImageTransaction(string partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
         {
+            //  
             List<DetailImage> listDetailImage = new List<DetailImage>();
 
             List<string> listFilename = listNameFileImage(partInputImage);
+            Logger.Log(string.Format(partInputImage + "----------------------------------"));
 
             foreach (string filename in listFilename)
             {
                 if (filename != null)
                 {
-                    DetailImage itemDetail = new DetailImage();
-                    CultureInfo provider = CultureInfo.InvariantCulture;
-                    string getFilName = Path.GetFileName(filename);
-                    string[] arrListStr = getFilName.Split(new char[] { '_' });
-                    DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
-                    if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
+                    Thread th_one = new Thread(() =>
                     {
-                        itemDetail.setPathImage(filename);
-                        listDetailImage.Add(itemDetail);
-                    }
+
+
+
+                        DetailImage itemDetail = new DetailImage();
+                        CultureInfo provider = CultureInfo.InvariantCulture;
+                        string getFilName = Path.GetFileName(filename);
+
+                        string[] arrListStr = getFilName.Split(new char[] { '_' });
+                        DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
+                        if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
+                        {
+                            Console.WriteLine("-----------------------------start time");
+                            Thread.Sleep(TimeSpan.FromSeconds(5));
+                            Console.WriteLine(filename);
+                            itemDetail.setPathImage(filename);
+                            Logger.Log(string.Format(filename));
+                            listDetailImage.Add(itemDetail);
+                        }
+                    });
+                    th_one.Start();
+                    th_one.Join();
+
 
 
                 }
 
             }
+
             return listDetailImage;
 
         }
         /*ghi chử vào ảnh*/
 
 
-
+        private static void ThreadOne(string filename)
+        {
+            Thread.Sleep(5000);
+            Console.WriteLine("ThreadOne");
+        }
 
 
         public static void textToImage(string partImage, string pasrtSave, DetailText itemText)
@@ -173,8 +278,6 @@ namespace Filewatcherservice
 
             try
             {
-
-
                 Image img;
 
                 using (var bmpTemp = new Bitmap(partImage))
@@ -194,7 +297,7 @@ namespace Filewatcherservice
                     stringformat1.Alignment = StringAlignment.Far;
                     Color stringColor1 = ColorTranslator.FromHtml("#e3e22d");
                     Color stringColor2 = ColorTranslator.FromHtml("#000000");
-                
+
                     graphicImage.DrawImage(ImageFromText(Cassette, brFore, stringColor1, stringColor2, 4), new Point(5, 30));
                     graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), brFore, stringColor1, stringColor2, 4), new Point(1100, 690));
                     graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), brFore, stringColor1, stringColor2, 4), new Point(600, 690));
@@ -298,15 +401,48 @@ namespace Filewatcherservice
             return listDetail;
         }
 
-        /*lấy ra danh sách text */
-
-
-        public static List<TextLine> listDetailText(string fullPath, string name, string CashRequest, string CashTake)
+        public static List<TextLine> textLine(List<string> text, string textStart, string textEnd)
         {
-            CultureInfo provider = CultureInfo.InvariantCulture;
             List<TextLine> listTextLine = new List<TextLine>();
             List<string> listString = new List<string>();
-            TextLine detailitem = new TextLine();
+            TextLine textLine = new TextLine();
+            string checkItemtext = null;
+            foreach (string itemtext in text)
+            {
+                if (itemtext.Contains(textStart))
+                {
+                    textLine.setTextStart(itemtext);
+                    checkItemtext = itemtext;
+
+                }
+                if (checkItemtext != null)
+                {
+                    listString.Add(itemtext);
+                }
+                if (itemtext.Contains(textEnd))
+                {
+                    textLine.setTextEnd(itemtext);
+                    checkItemtext = null;
+                    textLine.setLine(listString);
+                    listTextLine.Add(textLine);
+                    listString = new List<string>();
+                    textLine = new TextLine();
+                }
+
+            }
+
+
+
+            return listTextLine;
+
+
+        }
+        public static List<string> listDetailText(string fullPath, string name, string textStart, string textEnd)
+        {
+
+
+            List<string> listString = new List<string>();
+
             if (nameText == null)
             {
                 nameText = name;
@@ -319,7 +455,8 @@ namespace Filewatcherservice
 
 
             }
-            Thread.Sleep(300);
+            Logger.Log($"File Changed. Name: {name}" + " index line start:" + indexline);
+
             using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
             {
                 using (StreamReader reader = new StreamReader(stream))
@@ -330,39 +467,37 @@ namespace Filewatcherservice
                         reader.ReadLine();
                     }
                     string line;
-
+                    string itemtext = null;
                     while (!reader.EndOfStream)
                     {
 
                         indexline = indexline + 1;
+
                         line = reader.ReadLine();
                         Console.WriteLine(line);
+                        if (line.Contains(textStart))
+                        {
+                            itemtext = line;
 
-                        if (line.Contains(CashRequest))
-                        {
-                            detailitem.setIndexLineStart(indexline);
-                            listString.Add(line);
                         }
-                        if (listString.Count > 0)
+                        if (itemtext != null)
                         {
                             listString.Add(line);
                         }
-                        if (line.Contains(CashTake))
+                        if (line.Contains(textEnd))
                         {
-                            detailitem.setIndexLineEnd(indexline);
-                            detailitem.setLine(listString);
-                            listTextLine.Add(detailitem);
-                            detailitem = new TextLine();
-                            listString = new List<string>();
+                            itemtext = null;
                         }
+
                     }
 
 
                 }
             }
 
-            return listTextLine;
+            return listString;
         }
+
         public static string PathLocation(string value)
         {
             try

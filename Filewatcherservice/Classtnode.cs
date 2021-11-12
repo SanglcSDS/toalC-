@@ -187,6 +187,70 @@ namespace Filewatcherservice
             return listDetail;
         }*/
 
+        /*   public static List<TextLine> listDetailText(string fullPath, string name, string CashRequest, string CashTake)
+           {
+               CultureInfo provider = CultureInfo.InvariantCulture;
+               List<TextLine> listTextLine = new List<TextLine>();
+               List<string> listString = new List<string>();
+               TextLine detailitem = new TextLine();
+               if (nameText == null)
+               {
+                   nameText = name;
+               }
+               if (!nameText.Equals(name))
+               {
+
+                   nameText = name;
+                   indexline = 0;
+
+
+               }
+               // Thread.Sleep(300);
+               using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))
+               {
+                   using (StreamReader reader = new StreamReader(stream))
+                   {
+                       for (int i = 1; i <= indexline; i++)
+                       {
+
+                           reader.ReadLine();
+                       }
+                       string line;
+                       string itemCashRequest = null;
+                       while (!reader.EndOfStream)
+                       {
+
+                           indexline = indexline + 1;
+                           line = reader.ReadLine();
+                           Console.WriteLine(line);
+
+                           if (line.Contains(CashRequest))
+                           {
+                               detailitem.setIndexLineStart(indexline);
+                               itemCashRequest = line;
+
+                           }
+                           if (itemCashRequest != null)
+                           {
+                               listString.Add(line);
+                           }
+                           if (line.Contains(CashTake))
+                           {
+                               itemCashRequest = null;
+                               detailitem.setIndexLineEnd(indexline);
+                               detailitem.setLine(listString);
+                               listTextLine.Add(detailitem);
+                               detailitem = new TextLine();
+                               listString = new List<string>();
+                           }
+                       }
+
+
+                   }
+               }
+
+               return listTextLine;
+           }*/
 
     }
 }
