@@ -8,21 +8,20 @@ namespace Filewatcherservice
 {
     public class PartImage
     {
-        private string fileName;
+        private string pasrtSave;
         private string pathImage;
         private string currentDateTime;
         private string transNo;
         private string cassette;
-        private List<DetailImage> detailImage;
-        private DetailText detailText;
-        public string getFileName()
+
+        public string getPasrtSave()
         {
-            return fileName;
+            return pasrtSave;
         }
 
-        public void setFileName(string value)
+        public void setPasrtSave(string value)
         {
-            fileName = value;
+            pasrtSave = value;
 
         }
         public string getCassette()
@@ -69,24 +68,8 @@ namespace Filewatcherservice
             }
 
         }
-        public DetailText getDetailText()
-        {
-            return detailText;
-        }
-
-        public void setDetailText(DetailText value)
-        {
-            detailText = value;
-        }
-        public List<DetailImage> getListDetailImage()
-        {
-            return detailImage;
-        }
-
-        public void setListDetailImage(List<DetailImage> value)
-        {
-            detailImage = value;
-        }
+       
+      
         public string getPathImage()
         {
             return pathImage;

@@ -29,6 +29,7 @@ namespace Filewatcherservice
         private static string DATE_TIME = ConfigurationManager.AppSettings["dateTime"];
         private static string TRANSACTION_START = ConfigurationManager.AppSettings["transactionStart"];
         private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
+        private static string DELAY_SECONDS = ConfigurationManager.AppSettings["delaySeconds"];
 
         private static int indexline;
         private static string nameText = null;
@@ -76,18 +77,24 @@ namespace Filewatcherservice
                         List<string> liststring = listDetailText(fullPath, fileName, TRANSACTION_START, TRANSACTION_END);
                         List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN);
                         List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN);
-                        List<PartImage> textCam1 = inputCamera(listlisDetailText, CAM1, fileName);
                         Thread t = new Thread(() =>
                         {
-                            camera(textCam1, CAM1, OUPUT_CAM1, fileName);
+                            List<PartImage> listItemCamera1 = listItemCamera(listlisDetailText, CAM1, OUPUT_CAM1, fileName);
+                            camera(listItemCamera1);
+                            Logger.Log($"end camera1");
                         });
                         t.Start();
+                       
 
-                        Thread t2 = new Thread(() =>
+
+                        Thread t1 = new Thread(() =>
                         {
-                            camera(listlisDetailText, CAM2, OUPUT_CAM2, fileName);
+                            List<PartImage> listItemCamera2 = listItemCamera(listlisDetailText, CAM2, OUPUT_CAM2, fileName);
+                            camera(listItemCamera2);
+                            Logger.Log($"end camera2" );
                         });
-                        t2.Start();
+                        t1.Start();
+                       
 
 
 
@@ -127,140 +134,146 @@ namespace Filewatcherservice
 
         }
 
-        public static List<PartImage> inputCamera(List<DetailText> listlisDetailText, string camera, string fileName)
+        public static List<PartImage> listItemCamera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
         {
-
-            List<PartImage> listPartImage = new List<PartImage>();
-
+            List<PartImage> listDetailText = new List<PartImage>();
             foreach (DetailText itemText in listlisDetailText)
 
             {
-                PartImage itemPartImage = new PartImage();
-                itemPartImage.setListDetailImage(listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime()));
-                itemPartImage.setDetailText(itemText);
-                listPartImage.Add(itemPartImage);
 
+                List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
 
-            }
-
-            return listPartImage;
-
-
-        }
-
-        public void camera(List<PartImage> textCam1 , string ouputCam)
-        {
-            try
-            {
-
-                foreach (PartImage itemimage in textCam1)
+                foreach (DetailImage itemimage in listImageTran)
                 {
+                    PartImage itemDetailText = new PartImage();
+                    string getFilName = Path.GetFileName(itemimage.getPathImage());
 
-
-                    string getFilName = Path.GetFileName(itemimage.get);
-
-                    string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemimage.getDetailText().getTransNo() + @".jpg";
-
-                    textToImage(itemimage.getPathImage(), pasrtSave, itemimage.getDetailText());
-
-                }
-            catch (Exception ex)
-            {
-                Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
-                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
-                Console.WriteLine(ex.ToString());
-            }
-
-
-        }
-        public void camerawwww(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
-        {
-            try
-            {
-
-
-                foreach (DetailText itemText in listlisDetailText)
-
-                {
-
-                    List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
-
-                    foreach (DetailImage itemimage in listImageTran)
-                    {
-
-
-                        string getFilName = Path.GetFileName(itemimage.getPathImage());
-
-                        string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg";
-
-                        textToImage(itemimage.getPathImage(), pasrtSave, itemText);
-
-
-
-
-
-
-
-
-                    }
+                    itemDetailText.setCassette(itemText.getCassette());
+                    itemDetailText.setTransNo(itemText.getTransNo());
+                    itemDetailText.setCurrentDateTime(itemText.getCurrentDate());
+                    itemDetailText.setPathImage(itemimage.getPathImage());
+                    itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg");
+                    listDetailText.Add(itemDetailText);
                 }
             }
-            catch (Exception ex)
+            return listDetailText;
+
+
+        }
+        public void camera(List<PartImage> listItemCamera)
+
+        {
+            foreach (PartImage itemimage in listItemCamera)
             {
-                Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
-                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
-                Console.WriteLine(ex.ToString());
+                Thread th_one = new Thread(() =>
+                {
+                    textToImage(itemimage);
+
+                });
+                th_one.Start();
+                th_one.Join();
             }
 
 
         }
+        /*     public void camerawwww(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
+             {
+                 try
+                 {
+
+
+                     foreach (DetailText itemText in listlisDetailText)
+
+                     {
+
+                         List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
+
+                         foreach (DetailImage itemimage in listImageTran)
+                         {
+
+
+                             string getFilName = Path.GetFileName(itemimage.getPathImage());
+
+                             string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg";
+
+                             textToImage(itemimage.getPathImage(), pasrtSave, itemText);
+
+                         }
+                     }
+                 }
+                 catch (Exception ex)
+                 {
+                     Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
+                     Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
+                     Console.WriteLine(ex.ToString());
+                 }
+
+
+             }*/
 
 
         /* tìm kiếm danh sánh ảnh trong khoảng thời gian*/
         public static List<DetailImage> listImageTransaction(string partInputImage, DateTime startDateTransaction, DateTime endDateDateTransaction)
         {
-            //  
             List<DetailImage> listDetailImage = new List<DetailImage>();
-
-            List<string> listFilename = listNameFileImage(partInputImage);
-            Logger.Log(string.Format(partInputImage + "----------------------------------"));
-
-            foreach (string filename in listFilename)
+            try
             {
-                if (filename != null)
+
+                //  List<string> listFilename = listNameFileImage(partInputImage);
+              
+
+                var files = Directory.GetFiles(partInputImage, "*.*", SearchOption.AllDirectories);
+                if (files != null)
                 {
-                    Thread th_one = new Thread(() =>
+                    Console.WriteLine("-------------------------------------------------------------------------");
+                    foreach (string filename in files)
                     {
-
-
-
-                        DetailImage itemDetail = new DetailImage();
-                        CultureInfo provider = CultureInfo.InvariantCulture;
-                        string getFilName = Path.GetFileName(filename);
-
-                        string[] arrListStr = getFilName.Split(new char[] { '_' });
-                        DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
-                        if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
+                        Thread th_one = new Thread(() =>
                         {
-                            Console.WriteLine("-----------------------------start time");
-                            Thread.Sleep(TimeSpan.FromSeconds(5));
-                            Console.WriteLine(filename);
-                            itemDetail.setPathImage(filename);
-                            Logger.Log(string.Format(filename));
-                            listDetailImage.Add(itemDetail);
-                        }
-                    });
-                    th_one.Start();
-                    th_one.Join();
+                            if (filename != null)
+                            {
+
+
+                                DetailImage itemDetail = new DetailImage();
+                                CultureInfo provider = CultureInfo.InvariantCulture;
+                                string getFilName = Path.GetFileName(filename);
+
+                                string[] arrListStr = getFilName.Split(new char[] { '_' });
+                                DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
+                                if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
+                                {
+                                  
+                                    Thread.Sleep(TimeSpan.FromSeconds(Int32.Parse(DELAY_SECONDS)));
+                                    Console.WriteLine(filename);
+                                    itemDetail.setPathImage(filename);
+                                    Logger.Log(string.Format(filename));
+                                    listDetailImage.Add(itemDetail);
+                                }
 
 
 
+
+                            }
+                        });
+                        th_one.Start();
+                        th_one.Join();
+
+                    }
                 }
 
+
+               
+
+
             }
-
+            catch (Exception ex)
+            {
+                Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
+                Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
+                Console.WriteLine(ex.ToString());
+                
+            }
             return listDetailImage;
-
         }
         /*ghi chử vào ảnh*/
 
@@ -272,22 +285,24 @@ namespace Filewatcherservice
         }
 
 
-        public static void textToImage(string partImage, string pasrtSave, DetailText itemText)
+        public static void textToImage(PartImage itemPartImage)
         {
 
 
             try
             {
+
+
                 Image img;
 
-                using (var bmpTemp = new Bitmap(partImage))
+                using (var bmpTemp = new Bitmap(itemPartImage.getPathImage()))
                 using (Font brFore = new Font("Arial", 10, FontStyle.Bold))
                 {
                     img = new Bitmap(bmpTemp);
                     string Cassette = "";
-                    if (itemText.getCassette().Length >= 8)
+                    if (itemPartImage.getCassette().Length >= 8)
                     {
-                        string itemcassette = itemText.getCassette();
+                        string itemcassette = itemPartImage.getCassette();
                         Cassette = "1:" + itemcassette.Substring(0, 2) + "; 2:" + itemcassette.Substring(2, 2) + "; 3:" + itemcassette.Substring(4, 2) + "; 4:" + itemcassette.Substring(6, 2);
 
                     }
@@ -299,11 +314,11 @@ namespace Filewatcherservice
                     Color stringColor2 = ColorTranslator.FromHtml("#000000");
 
                     graphicImage.DrawImage(ImageFromText(Cassette, brFore, stringColor1, stringColor2, 4), new Point(5, 30));
-                    graphicImage.DrawImage(ImageFromText(itemText.getCurrentDate(), brFore, stringColor1, stringColor2, 4), new Point(1100, 690));
-                    graphicImage.DrawImage(ImageFromText("Trans No: " + itemText.getTransNo(), brFore, stringColor1, stringColor2, 4), new Point(600, 690));
+                    graphicImage.DrawImage(ImageFromText(itemPartImage.getCurrentDateTime(), brFore, stringColor1, stringColor2, 4), new Point(1100, 690));
+                    graphicImage.DrawImage(ImageFromText("Trans No: " + itemPartImage.getTransNo(), brFore, stringColor1, stringColor2, 4), new Point(600, 690));
 
 
-                    img.Save(pasrtSave);
+                    img.Save(itemPartImage.getPasrtSave());
 
                 }
 
@@ -474,7 +489,7 @@ namespace Filewatcherservice
                         indexline = indexline + 1;
 
                         line = reader.ReadLine();
-                        Console.WriteLine(line);
+                       
                         if (line.Contains(textStart))
                         {
                             itemtext = line;
