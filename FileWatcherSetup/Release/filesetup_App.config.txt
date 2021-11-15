@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
 	<appSettings>
-		<add key="fileLog" value="C:\Filewatcherservice\FILE_LOG\"/>
+		<add key="fileLog" value="C:\Filewatcherservice\FILE_LOG\"/>đường dẫn log của file
 		<add key="cam1" value="C:\Filewatcherservice\Camera\CAM1\"/>
 		<add key="cam2" value="C:\Filewatcherservice\Camera\CAM2\"/>
 		<add key="text" value="C:\Filewatcherservice\JOURNAL\"/>
@@ -13,7 +13,7 @@
 		<add key="cashTake" value="CASH TAKEN"/>
 		<add key="transNo" value="TRANS NO"/>
 		<add key="dateTime" value="DATE  TIME"/>
-		<add key="delaySeconds" value="10"/>
+		<add key="delaySeconds" value="1"/>thời gian delay đầu vào của ảnh tính bằng giây
 
 	</appSettings>
 	<startup>

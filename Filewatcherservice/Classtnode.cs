@@ -251,6 +251,41 @@ namespace Filewatcherservice
 
                return listTextLine;
            }*/
+        /*     public void camerawwww(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
+            {
+                try
+                {
+
+
+                    foreach (DetailText itemText in listlisDetailText)
+
+                    {
+
+                        List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
+
+                        foreach (DetailImage itemimage in listImageTran)
+                        {
+
+
+                            string getFilName = Path.GetFileName(itemimage.getPathImage());
+
+                            string pasrtSave = PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg";
+
+                            textToImage(itemimage.getPathImage(), pasrtSave, itemText);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
+                    Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
+                    Console.WriteLine(ex.ToString());
+                }
+
+
+            }*/
+
 
     }
 }

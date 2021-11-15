@@ -21,7 +21,15 @@ namespace Filewatcherservice
 
         public void setPasrtSave(string value)
         {
-            pasrtSave = value;
+            if (value == null)
+            {
+                pasrtSave = "#";
+            }
+            else
+            {
+                pasrtSave = value;
+            }
+          
 
         }
         public string getCassette()
@@ -31,7 +39,15 @@ namespace Filewatcherservice
 
         public void setCassette(string value)
         {
-            cassette = value;
+            if (value == null)
+            {
+                cassette = "#";
+            }
+            else
+            {
+                cassette = value;
+            }
+
 
         }
         public string getCurrentDateTime()
@@ -43,7 +59,7 @@ namespace Filewatcherservice
         {
             if (value == null)
             {
-                currentDateTime = "";
+                currentDateTime = "#";
             }
             else
             {
@@ -60,7 +76,7 @@ namespace Filewatcherservice
         {
             if (value == null)
             {
-                transNo = "";
+                transNo = "#";
             }
             else
             {
