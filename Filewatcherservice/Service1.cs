@@ -13,7 +13,7 @@ namespace Filewatcherservice
 {
     public partial class Service1 : ServiceBase
     {
-        static System.Timers.Timer t;
+        Queue<string> queueFullPath = new Queue<string>();
         public Service1()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace Filewatcherservice
         protected override void OnStart(string[] args)
         {
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 500;
+            timer.Interval = 3000;
             timer.Elapsed += timer_Elapsed;
             timer.Start();
            
@@ -37,7 +37,25 @@ namespace Filewatcherservice
             DetailImage itemDetail = new DetailImage();
 
             string date = e.SignalTime.ToString("yyyyMMdd");
-            FileWatcher f = new FileWatcher(date);
+
+            queueFullPath.Enqueue(date);
+            while (queueFullPath.Count > 0)
+            {
+                string fileName = (string)queueFullPath.Peek();
+
+
+                FileWatcher f = new FileWatcher("20211019");
+                if(queueFullPath.Count > 0)
+                {
+                    queueFullPath.Dequeue();
+
+                }
+               
+            }
+         
+        
+        
+         
         }
 
     

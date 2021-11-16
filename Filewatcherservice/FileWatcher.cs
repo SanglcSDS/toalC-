@@ -14,10 +14,12 @@ using System.Collections;
 
 namespace Filewatcherservice
 {
+   
     public class FileWatcher
     {
 
-        private FileSystemWatcher _filewatcher;
+
+
         private static string INPUT_TEXT = ConfigurationManager.AppSettings["text"];
         private static string CAM1 = ConfigurationManager.AppSettings["cam1"];
         private static string CAM2 = ConfigurationManager.AppSettings["cam2"];
@@ -30,90 +32,56 @@ namespace Filewatcherservice
         private static string TRANSACTION_START = ConfigurationManager.AppSettings["transactionStart"];
         private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
         private static string DELAY_SECONDS = ConfigurationManager.AppSettings["delaySeconds"];
-       
+
         private static int indexline;
         private static string nameText = null;
-        public FileWatcher()
+
+ 
+        public FileWatcher(string fileName)
         {
-            PathLocation(CAM1);
-            PathLocation(CAM2);
-            PathLocation(OUPUT_CAM1);
-            PathLocation(OUPUT_CAM2);
-            PathLocation(INPUT_TEXT);
-            _filewatcher = new FileSystemWatcher(INPUT_TEXT);
-            _filewatcher.Changed += new FileSystemEventHandler(_filewatcher_Changed);
-            //    _filewatcher.NotifyFilter = NotifyFilters.FileName;
-            _filewatcher.EnableRaisingEvents = true;
-
-        }
-
-        Queue queueFullPath = new Queue();
-
-
-        public void _filewatcher_Changed(object sender, FileSystemEventArgs e)
-        {
-
 
             try
             {
-                _filewatcher.Changed -= _filewatcher_Changed;
-                _filewatcher.EnableRaisingEvents = false;
+                string date = "//" + fileName;
+                string fileNamejrn = "//" + fileName + ".jrn";
+                PathLocation(CAM1 + date);
+                PathLocation(CAM2 + date);
+                PathLocation(OUPUT_CAM1 + date);
+                PathLocation(OUPUT_CAM2 + date);
+                PathLocation(INPUT_TEXT);
 
 
-                if (IsTextJrn(e.Name))
+                if (IsTextJrn(fileNamejrn))
                 {
-
-
-                    queueFullPath.Enqueue(e.FullPath);
-
-                    int Length = queueFullPath.Count;
-                    for (int i = 0; i < Length; i++)
-                    {
-                        string fullPath = (string)queueFullPath.Peek();
-
-
-                        string name = fullPath.Substring(fullPath.LastIndexOf(@"\") + 1);
-                        string fileName = name.Remove(name.Length - 4);
-                        List<string> liststring = listDetailText(fullPath, fileName, TRANSACTION_START, TRANSACTION_END);
+               
+                        Thread th_one = new Thread(() =>
+                        {
+                        List<string> liststring = listDetailText(INPUT_TEXT + fileNamejrn, fileName, TRANSACTION_START, TRANSACTION_END);
                         List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN);
                         List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN);
-                        Thread t = new Thread(() =>
-                        {
-                            var watch = new System.Diagnostics.Stopwatch();
-                            List<PartImage> listItemCamera1 = listItemCamera(listlisDetailText, CAM1, OUPUT_CAM1, fileName);
-                            watch.Start();
-                            camera(listItemCamera1);
-                            watch.Stop();
-                            Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
-                        });
-                        t.Start();
-                        Thread t2 = new Thread(() =>
-                        {
+
+                        List<PartImage> listItemCamera1 = listItemCamera(listlisDetailText, CAM1, OUPUT_CAM1, fileName);
+                        camera(listItemCamera1);
+
                         List<PartImage> listItemCamera2 = listItemCamera(listlisDetailText, CAM2, OUPUT_CAM2, fileName);
                         camera(listItemCamera2);
-                          
+
+
                         });
-                        t2.Start();
-
-
-
-
-                        queueFullPath.Dequeue();
-
-                    }
-
+                        th_one.Start();
+                        th_one.Join();
                     Logger.Log(string.Format("camera  end"));
 
                 }
                 else
                 {
 
-                    Logger.Log(string.Format(_filewatcher.Path));
+                    Logger.Log(string.Format(fileNamejrn));
                 }
-                Logger.Log(string.Format("File:{0} Changed at time:{1}", e.Name, DateTime.Now.ToLocalTime()));
-                Logger.Log($"File Changed. Name: {e.Name}" + " index line end:" + indexline);
+                Logger.Log(string.Format("File:{0} Changed at time:{1}", fileNamejrn, DateTime.Now.ToLocalTime()));
+                Logger.Log($"File Changed. Name: {fileNamejrn}" + " index line end:" + indexline);
                 Logger.Log($"---------------------------------------------------------------");
-                Console.WriteLine($"File Changed. Name: {e.Name}" + " index line:" + indexline);
+                Console.WriteLine($"File Changed. Name: {fileNamejrn}" + " index line:" + indexline);
 
 
             }
@@ -124,19 +92,17 @@ namespace Filewatcherservice
                 Logger.Log(string.Format("The process failed: {0}", ex.StackTrace));
                 Console.WriteLine(ex.ToString());
             }
-            finally
-            {
-                _filewatcher.Changed += _filewatcher_Changed;
-                _filewatcher.EnableRaisingEvents = true;
-            }
-
-
 
         }
 
+
+
+
+
+
         public static List<PartImage> listItemCamera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
         {
-            Thread.Sleep(TimeSpan.FromSeconds(Int32.Parse(DELAY_SECONDS)));
+            // Thread.Sleep(TimeSpan.FromSeconds(Int32.Parse(DELAY_SECONDS)));
             List<PartImage> listDetailText = new List<PartImage>();
             foreach (DetailText itemText in listlisDetailText)
 
@@ -144,22 +110,20 @@ namespace Filewatcherservice
                 Thread th_one = new Thread(() =>
                 {
 
-
-                    //   Logger.Log(string.Format(" CASH_REQUEST Time Date Start: " + itemText.getStartTime() + " CASH_TAKEN Time Date End: " + itemText.getEndTime()));
                     List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
 
-                foreach (DetailImage itemimage in listImageTran)
-                {
-                    PartImage itemDetailText = new PartImage();
-                    string getFilName = Path.GetFileName(itemimage.getPathImage());
+                    foreach (DetailImage itemimage in listImageTran)
+                    {
+                        PartImage itemDetailText = new PartImage();
+                        string getFilName = Path.GetFileName(itemimage.getPathImage());
 
-                    itemDetailText.setCassette(itemText.getCassette());
-                    itemDetailText.setTransNo(itemText.getTransNo());
-                    itemDetailText.setCurrentDateTime(itemText.getCurrentDate());
-                    itemDetailText.setPathImage(itemimage.getPathImage());
-                    itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg");
-                    listDetailText.Add(itemDetailText);
-                }
+                        itemDetailText.setCassette(itemText.getCassette());
+                        itemDetailText.setTransNo(itemText.getTransNo());
+                        itemDetailText.setCurrentDateTime(itemText.getCurrentDate());
+                        itemDetailText.setPathImage(itemimage.getPathImage());
+                        itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg");
+                        listDetailText.Add(itemDetailText);
+                    }
                 });
                 th_one.Start();
                 th_one.Join();
@@ -193,7 +157,7 @@ namespace Filewatcherservice
             try
             {
 
-              
+
                 var files = Directory.GetFiles(partInputImage, "*.*", SearchOption.AllDirectories);
                 if (files != null)
                 {
@@ -204,7 +168,7 @@ namespace Filewatcherservice
                         {
                             if (filename != null)
                             {
-                                
+
 
                                 DetailImage itemDetail = new DetailImage();
                                 CultureInfo provider = CultureInfo.InvariantCulture;
@@ -214,7 +178,7 @@ namespace Filewatcherservice
                                 DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
                                 if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                                 {
-                                    
+
 
                                     Console.WriteLine(filename);
                                     itemDetail.setPathImage(filename);
@@ -226,7 +190,7 @@ namespace Filewatcherservice
                             }
                         });
                         th_one.Start();
-                         th_one.Join();
+                        th_one.Join();
 
                     }
                 }
