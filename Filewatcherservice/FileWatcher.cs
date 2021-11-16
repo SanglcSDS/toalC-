@@ -30,7 +30,7 @@ namespace Filewatcherservice
         private static string TRANSACTION_START = ConfigurationManager.AppSettings["transactionStart"];
         private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
         private static string DELAY_SECONDS = ConfigurationManager.AppSettings["delaySeconds"];
-
+       
         private static int indexline;
         private static string nameText = null;
         public FileWatcher()
@@ -79,9 +79,12 @@ namespace Filewatcherservice
                         List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN);
                         Thread t = new Thread(() =>
                         {
+                            var watch = new System.Diagnostics.Stopwatch();
                             List<PartImage> listItemCamera1 = listItemCamera(listlisDetailText, CAM1, OUPUT_CAM1, fileName);
+                            watch.Start();
                             camera(listItemCamera1);
-                         
+                            watch.Stop();
+                            Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
                         });
                         t.Start();
                         Thread t2 = new Thread(() =>
@@ -133,13 +136,17 @@ namespace Filewatcherservice
 
         public static List<PartImage> listItemCamera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
         {
+            Thread.Sleep(TimeSpan.FromSeconds(Int32.Parse(DELAY_SECONDS)));
             List<PartImage> listDetailText = new List<PartImage>();
             foreach (DetailText itemText in listlisDetailText)
 
             {
+                Thread th_one = new Thread(() =>
+                {
 
-             //   Logger.Log(string.Format(" CASH_REQUEST Time Date Start: " + itemText.getStartTime() + " CASH_TAKEN Time Date End: " + itemText.getEndTime()));
-                List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
+
+                    //   Logger.Log(string.Format(" CASH_REQUEST Time Date Start: " + itemText.getStartTime() + " CASH_TAKEN Time Date End: " + itemText.getEndTime()));
+                    List<DetailImage> listImageTran = listImageTransaction(camera + fileName + @"\\", itemText.getStartTime(), itemText.getEndTime());
 
                 foreach (DetailImage itemimage in listImageTran)
                 {
@@ -153,6 +160,9 @@ namespace Filewatcherservice
                     itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg");
                     listDetailText.Add(itemDetailText);
                 }
+                });
+                th_one.Start();
+                th_one.Join();
             }
             return listDetailText;
 
@@ -194,7 +204,7 @@ namespace Filewatcherservice
                         {
                             if (filename != null)
                             {
-
+                                
 
                                 DetailImage itemDetail = new DetailImage();
                                 CultureInfo provider = CultureInfo.InvariantCulture;
@@ -204,15 +214,13 @@ namespace Filewatcherservice
                                 DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
                                 if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                                 {
-                                    Thread.Sleep(TimeSpan.FromSeconds(Int32.Parse(DELAY_SECONDS)));
+                                    
 
                                     Console.WriteLine(filename);
                                     itemDetail.setPathImage(filename);
                                     Logger.Log(string.Format(filename));
                                     listDetailImage.Add(itemDetail);
                                 }
-
-
 
 
                             }
