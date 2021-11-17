@@ -286,6 +286,52 @@ namespace Filewatcherservice
 
             }*/
 
+/*        public static List<TextLine> textLine(List<string> text, string textStart, string textEnd)
+        {
 
+            List<TextLine> listTextLine = new List<TextLine>();
+            List<string> listStringitem = new List<string>();
+            TextLine textLine = new TextLine();
+            string checkItemtext = null;
+            foreach (string itemtext in text)
+            {
+                if (itemtext.Contains(textStart) && checkItemtext == null)
+                {
+                    textLine.setTextStart(itemtext);
+                    listStringitem.Add(itemtext);
+                    checkItemtext = itemtext;
+                    continue;
+                }
+                if (itemtext.Contains(textStart) && checkItemtext != null)
+                {
+                    listStringitem = new List<string>();
+                    textLine = new TextLine();
+                    listStringitem.Add(itemtext);
+                    textLine.setTextStart(itemtext);
+                    checkItemtext = itemtext;
+                    continue;
+                }
+                if (checkItemtext != null)
+                {
+                    listStringitem.Add(itemtext);
+                }
+                if (itemtext.Contains(textEnd))
+                {
+                    textLine.setTextEnd(itemtext);
+                    textLine.setLine(listStringitem);
+                    listTextLine.Add(textLine);
+                    listStringitem = new List<string>();
+                    textLine = new TextLine();
+                    checkItemtext = null;
+                }
+
+            }
+
+
+
+            return listTextLine;
+
+
+        }*/
     }
 }

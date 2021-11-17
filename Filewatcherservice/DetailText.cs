@@ -9,24 +9,25 @@ namespace Filewatcherservice
     public class DetailText
     {
         private string pathImage;
-        private string fileName;
+        private string pasrtSave;
         private string transactionName;
         private string cassette;
-        private string transNo;
-        private string currentTime;
-        private string currentDate;
-        private string terminalId;
+   
+        private string dateTimeRequest;
+        private string dateTimeTake;
+        private string transNoRequest;
+        private string transNoTake;
         private DateTime startTime;
         private DateTime endTime;
 
-        public string getFileName()
+        public string getPasrtSave()
         {
-            return fileName;
+            return pasrtSave;
         }
 
-        public void setFileName(string value)
+        public void setPasrtSave(string value)
         {
-            fileName = value;
+            pasrtSave = value;
 
         }
         public string getTransactionName()
@@ -38,15 +39,7 @@ namespace Filewatcherservice
         {
             transactionName = value;
         }
-        public string getTerminalId()
-        {
-            return terminalId;
-        }
 
-        public void setTerminalIdy(string value)
-        {
-            terminalId = value;
-        }
 
         public string getCassette()
         {
@@ -59,55 +52,72 @@ namespace Filewatcherservice
             
         }
 
-        public string getTransNo()
+        public string getTransNoRequest()
         {
-            return transNo;
+            return transNoRequest;
         }
 
-        public void setTransNo(string value)
+        public void setTransNoRequest(string value)
         {
             if (value == null)
             {
-                transNo = "";
+                transNoRequest = "";
             }
             else
             {
-                transNo = value;
+                transNoRequest = value;
             }
            
         }
-        public string getCurrentTime()
+        public string getTransNoTake()
         {
-            return currentTime;
+            return transNoTake;
         }
 
-        public void setCurrentTime(string value)
+        public void setTransNoTake(string value)
         {
             if (value == null)
             {
-                currentTime = "";
+                transNoTake = "";
             }
             else
             {
-                currentTime = value;
+                transNoTake = value;
             }
-           
-           
+
         }
-        public string getCurrentDate()
+        public string getDateTimeTake()
         {
-            return currentDate;
+            return dateTimeTake;
         }
 
-        public void setCurrentDate(string value)
+        public void setDateTimeTake(string value)
         {
             if (value == null)
             {
-                currentDate = "";
+                dateTimeTake = "";
             }
             else
             {
-                currentDate = value;
+                dateTimeTake = value;
+            }
+           
+           
+        }
+        public string getDateTimeRequest()
+        {
+            return dateTimeRequest;
+        }
+
+        public void setDateTimeRequest(string value)
+        {
+            if (value == null)
+            {
+                dateTimeRequest = "";
+            }
+            else
+            {
+                dateTimeRequest = value;
             }
            
         }
