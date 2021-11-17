@@ -14,7 +14,7 @@ using System.Collections;
 
 namespace Filewatcherservice
 {
-   
+
     public class FileWatcher
     {
 
@@ -32,12 +32,13 @@ namespace Filewatcherservice
         private static string TRANSACTION_START = ConfigurationManager.AppSettings["transactionStart"];
         private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
         private static string DELAY_SECONDS = ConfigurationManager.AppSettings["delaySeconds"];
-
+        Queue<DetailText> queueDetailText = new Queue<DetailText>();
         private static int indexline;
+        private static int indexlinEnd;
         private static string nameText = null;
 
- 
-        public FileWatcher(string fileName)
+
+        public void fileWatcher(string fileName)
         {
 
             try
@@ -53,23 +54,27 @@ namespace Filewatcherservice
 
                 if (IsTextJrn(fileNamejrn))
                 {
-               
-                        Thread th_one = new Thread(() =>
-                        {
-                        List<string> liststring = listDetailText(INPUT_TEXT + fileNamejrn, fileName, TRANSACTION_START, TRANSACTION_END);
-                        List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN);
-                        List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN);
 
+
+                    List<string> liststring = listDetailText(INPUT_TEXT + fileNamejrn, fileName, TRANSACTION_START, TRANSACTION_END);
+                    List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN);
+                    List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN);
+                 
+                    
+                    
+                    
+                    Thread th_one = new Thread(() =>
+                    {
                         List<PartImage> listItemCamera1 = listItemCamera(listlisDetailText, CAM1, OUPUT_CAM1, fileName);
-                        camera(listItemCamera1);
-
+                    camera(listItemCamera1);
+                   
                         List<PartImage> listItemCamera2 = listItemCamera(listlisDetailText, CAM2, OUPUT_CAM2, fileName);
                         camera(listItemCamera2);
 
 
-                        });
-                        th_one.Start();
-                        th_one.Join();
+                    });
+                    th_one.Start();
+                    th_one.Join();
                     Logger.Log(string.Format("camera  end"));
 
                 }
@@ -78,7 +83,7 @@ namespace Filewatcherservice
 
                     Logger.Log(string.Format(fileNamejrn));
                 }
-                Logger.Log(string.Format("File:{0} Changed at time:{1}", fileNamejrn, DateTime.Now.ToLocalTime()));
+              //  Logger.Log(string.Format("File:{0} Changed at time:{1}", fileNamejrn, DateTime.Now.ToLocalTime()));
                 Logger.Log($"File Changed. Name: {fileNamejrn}" + " index line end:" + indexline);
                 Logger.Log($"---------------------------------------------------------------");
                 Console.WriteLine($"File Changed. Name: {fileNamejrn}" + " index line:" + indexline);
@@ -417,6 +422,7 @@ namespace Filewatcherservice
 
                 nameText = name;
                 indexline = 0;
+                indexlinEnd = 0;
 
 
             }
@@ -427,11 +433,12 @@ namespace Filewatcherservice
             {
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    for (int i = 1; i <= indexline; i++)
+                    for (int i = 1; i <= indexlinEnd; i++)
                     {
 
                         reader.ReadLine();
                     }
+                    indexline = indexlinEnd;
                     string line;
                     string checkItemtext = null;
 
@@ -468,6 +475,10 @@ namespace Filewatcherservice
                             listString.AddRange(listStringItem);
                             listStringItem = new List<string>();
                             checkItemtext = null;
+                            
+                            indexlinEnd = indexline;
+
+                            Console.WriteLine("------------------"+ indexlinEnd);
                         }
 
                     }

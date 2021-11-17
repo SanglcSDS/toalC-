@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
@@ -14,6 +16,10 @@ namespace Filewatcherservice
     public partial class Service1 : ServiceBase
     {
         Queue<string> queueFullPath = new Queue<string>();
+        private static string INPUT_TEXT = ConfigurationManager.AppSettings["text"];
+        private static string DELAY_MINUTE = ConfigurationManager.AppSettings["delayMinutes"];
+        private static string TEST = ConfigurationManager.AppSettings["test"];
+        private static string nameText = null;
         public Service1()
         {
             InitializeComponent();
@@ -27,38 +33,82 @@ namespace Filewatcherservice
         protected override void OnStart(string[] args)
         {
             System.Timers.Timer timer = new System.Timers.Timer();
-            timer.Interval = 3000;
+            // timer.Interval = (int)TimeSpan.FromMinutes(Int32.Parse(DELAY_MINUTE)).TotalMilliseconds;
+            timer.Interval = 200;
             timer.Elapsed += timer_Elapsed;
             timer.Start();
-           
+
         }
         void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            DetailImage itemDetail = new DetailImage();
 
+            Console.WriteLine(e.SignalTime);
             string date = e.SignalTime.ToString("yyyyMMdd");
+            if (nameText == null || date.Equals(nameText))
+            {
 
-            queueFullPath.Enqueue(date);
+
+                if (string.IsNullOrEmpty(TEST))
+                {
+                    nameText = date;
+                    queueFullPath.Enqueue(date);
+                   
+                }
+                else
+                {
+                    nameText = TEST;
+                    queueFullPath.Enqueue(TEST);
+                }
+
+            }
+
+            else
+            {
+
+                if (string.IsNullOrEmpty(TEST))
+                {
+                   
+                    queueFullPath.Enqueue(nameText);
+                    queueFullPath.Enqueue(date);
+                     nameText = date;
+                }
+                else
+                {
+                   
+                    queueFullPath.Enqueue(nameText);
+                    queueFullPath.Enqueue(TEST);
+                    nameText = TEST;
+
+                }
+
+
+
+            }
+
+
             while (queueFullPath.Count > 0)
             {
                 string fileName = (string)queueFullPath.Peek();
-
-
-                FileWatcher f = new FileWatcher("20211019");
-                if(queueFullPath.Count > 0)
+                string fileNamejrn = "//" + fileName + ".jrn";
+                if (File.Exists(INPUT_TEXT + fileNamejrn))
                 {
-                    queueFullPath.Dequeue();
+
+                    FileWatcher f = new FileWatcher();
+                    f.fileWatcher(fileName);
+
+                    if (queueFullPath.Count > 0)
+                    {
+                        queueFullPath.Dequeue();
+
+                    }
 
                 }
-               
+
+
             }
-         
-        
-        
-         
         }
 
-    
+
         protected override void OnStop()
         {
         }
