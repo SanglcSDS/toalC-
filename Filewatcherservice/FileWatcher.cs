@@ -33,7 +33,7 @@ namespace Filewatcherservice
         private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
         private static string DELAY_SECONDS = ConfigurationManager.AppSettings["delaySeconds"];
         private static string LINES = ConfigurationManager.AppSettings["lines"];
-        Queue<DetailText> queueDetailText = new Queue<DetailText>();
+        Queue<List<DetailText>> queueDetailText = new Queue<List<DetailText>>();
         private static int indexline;
         private static int indexlinEnd;
         private static string nameText = null;
@@ -60,23 +60,30 @@ namespace Filewatcherservice
                     List<string> liststring = listDetailText(INPUT_TEXT + fileNamejrn, fileName, TRANSACTION_START, TRANSACTION_END);
                     List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN, LINES);
                     List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN, LINES);
+                    queueDetailText.Enqueue(listlisDetailText);
 
-
-
-
-                    Thread th_one = new Thread(() =>
+                  // Console.WriteLine("ssss");
+                    if (queueDetailText.Count >= 2)
                     {
-                        List<PartImage> listItemCamera1 = listItemCamera(listlisDetailText, CAM1, OUPUT_CAM1, fileName);
-                        camera(listItemCamera1);
+                        Thread th_one = new Thread(() =>
+                        {
+                            List<PartImage> listItemCamera1 = listItemCamera(queueDetailText.Peek(), CAM1, OUPUT_CAM1, fileName, CASH_TAKEN);
+                            camera(listItemCamera1);
 
-                        List<PartImage> listItemCamera2 = listItemCamera(listlisDetailText, CAM2, OUPUT_CAM2, fileName);
-                        camera(listItemCamera2);
+                            List<PartImage> listItemCamera2 = listItemCamera(queueDetailText.Peek(), CAM2, OUPUT_CAM2, fileName, CASH_TAKEN);
+                            camera(listItemCamera2);
 
 
-                    });
-                    th_one.Start();
-                    th_one.Join();
-                    Logger.Log(string.Format("camera  end"));
+                        });
+                        th_one.Start();
+                        th_one.Join();
+
+                      
+
+                       queueDetailText.Dequeue();
+                    }
+
+                  
 
                 }
                 else
@@ -84,8 +91,8 @@ namespace Filewatcherservice
 
                     Logger.Log(string.Format(fileNamejrn));
                 }
-                //  Logger.Log(string.Format("File:{0} Changed at time:{1}", fileNamejrn, DateTime.Now.ToLocalTime()));
-                Logger.Log($"File Changed. Name: {fileNamejrn}" + " index line end:" + indexline);
+                
+               
                 Logger.Log($"---------------------------------------------------------------");
                 Console.WriteLine($"File Changed. Name: {fileNamejrn}" + " index line:" + indexline);
 
@@ -106,7 +113,7 @@ namespace Filewatcherservice
 
 
 
-        public static List<PartImage> listItemCamera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName)
+        public static List<PartImage> listItemCamera(List<DetailText> listlisDetailText, string camera, string ouputCam, string fileName, string cashTake)
         {
             // Thread.Sleep(TimeSpan.FromSeconds(Int32.Parse(DELAY_SECONDS)));
             List<PartImage> listDetailText = new List<PartImage>();
@@ -122,12 +129,24 @@ namespace Filewatcherservice
                     {
                         PartImage itemDetailText = new PartImage();
                         string getFilName = Path.GetFileName(itemimage.getPathImage());
-
                         itemDetailText.setCassette(itemText.getCassette());
-                      /*  itemDetailText.setTransNo(itemText.getTransNo());
-                        itemDetailText.setCurrentDateTime(itemText.getCurrentDate());
-                        itemDetailText.setPathImage(itemimage.getPathImage());
-                        itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNo() + @".jpg");*/
+                        if (cashTake.Equals(itemimage.getDescription()))
+                        {
+                            itemDetailText.setTransNo(itemText.getTransNoTake());
+                            itemDetailText.setCurrentDateTime(itemText.getDateTimeTake());
+                            itemDetailText.setPathImage(itemimage.getPathImage());
+                            itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNoTake() + @".jpg");
+                        }
+                        else
+                        {
+                            itemDetailText.setTransNo(itemText.getTransNoRequest());
+                            itemDetailText.setCurrentDateTime(itemText.getDateTimeRequest());
+                            itemDetailText.setPathImage(itemimage.getPathImage());
+                            itemDetailText.setPasrtSave(PathLocation(ouputCam + fileName + @"\\") + getFilName.Remove(getFilName.Length - 4) + @"_" + itemText.getTransNoRequest() + @".jpg");
+
+                        }
+
+
                         listDetailText.Add(itemDetailText);
                     }
                 });
@@ -185,7 +204,7 @@ namespace Filewatcherservice
                                 if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                                 {
                                     string name = getFilName.Substring(getFilName.LastIndexOf(@"-") + 1);
-                                    itemDetail.setDescription(name.Remove(name.Length-name.Substring(name.LastIndexOf(@"_")).Length, name.Substring(name.LastIndexOf(@"_")).Length).Replace(@"_", @" ").Trim());
+                                    itemDetail.setDescription(name.Remove(name.Length - name.Substring(name.LastIndexOf(@"_")).Length, name.Substring(name.LastIndexOf(@"_")).Length).Replace(@"_", @" ").Trim());
                                     Console.WriteLine(filename);
                                     itemDetail.setPathImage(filename);
                                     Logger.Log(string.Format(filename));
@@ -374,7 +393,7 @@ namespace Filewatcherservice
                     if (itemline[i].Contains(cashTake))
                     {
                         detail.setEndTime(DateTime.ParseExact(fileName + itemline[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
-                       
+
 
                     }
 
@@ -461,7 +480,7 @@ namespace Filewatcherservice
 
 
             }
-            Logger.Log($"File Changed. Name: {name}" + " index line start:" + indexline);
+            Logger.Log($"File Changed. Name: {name}" + " index line start:" + indexlinEnd);
             // Thread.Sleep(300);
 
             using (var stream = new FileStream(path: fullPath, mode: FileMode.Open, access: FileAccess.ReadWrite, share: FileShare.ReadWrite))

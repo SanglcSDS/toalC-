@@ -22,7 +22,7 @@ namespace Filewatcherservice
         // DateTime.ToString("MM/dd/yyyy HH:mm:ss")
         public string getDescriptionItem()
         {
-            return description;
+            return descriptionItem;
         }
 
         public void setDescriptioItem(string value)
@@ -31,7 +31,7 @@ namespace Filewatcherservice
         }
         public string getDescription()
         {
-            return descriptionItem;
+            return description;
         }
 
         public void setDescription(string value)
