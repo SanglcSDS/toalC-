@@ -200,9 +200,18 @@ namespace Filewatcherservice
                                 string getFilName = Path.GetFileName(filename);
 
                                 string[] arrListStr = getFilName.Split(new char[] { '_' });
-                                DateTime currentDate = DateTime.ParseExact(arrListStr[1], "yyyyMMddHHmmss", provider);
+                                Console.WriteLine(arrListStr[1].Length);
+                                string dateTime = "20210101000000";
+                                if (arrListStr[1].Length >= 14)
+                                {
+                                    dateTime = arrListStr[1].Substring(0, 14);
+                                   
+                                }
+                                DateTime currentDate = DateTime.ParseExact(dateTime, "yyyyMMddHHmmss", provider);
+
                                 if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                                 {
+
                                     string name = getFilName.Substring(getFilName.LastIndexOf(@"-") + 1);
                                     itemDetail.setDescription(name.Remove(name.Length - name.Substring(name.LastIndexOf(@"_")).Length, name.Substring(name.LastIndexOf(@"_")).Length).Replace(@"_", @" ").Trim());
                                     Console.WriteLine(filename);
