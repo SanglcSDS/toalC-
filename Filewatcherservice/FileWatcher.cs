@@ -31,7 +31,7 @@ namespace Filewatcherservice
         private static string DATE_TIME = ConfigurationManager.AppSettings["dateTime"];
         private static string TRANSACTION_START = ConfigurationManager.AppSettings["transactionStart"];
         private static string TRANSACTION_END = ConfigurationManager.AppSettings["transactionEnd"];
-        private static string DELAY_SECONDS = ConfigurationManager.AppSettings["delaySeconds"];
+        private static string CASH_RETRACTED = ConfigurationManager.AppSettings["cashRetracted"];
         private static string LINES = ConfigurationManager.AppSettings["lines"];
         Queue<List<DetailText>> queueDetailText = new Queue<List<DetailText>>();
         private static int indexline;
@@ -58,8 +58,25 @@ namespace Filewatcherservice
 
 
                     List<string> liststring = listDetailText(INPUT_TEXT + fileNamejrn, fileName, TRANSACTION_START, TRANSACTION_END);
+
                     List<TextLine> listlisTextLine = textLine(liststring, CASH_REQUEST, CASH_TAKEN, LINES);
+
+                    List<TextLine> listlisTextLine1 = textLine(liststring, CASH_REQUEST, CASH_RETRACTED, LINES);
+
+                  
                     List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN, LINES);
+                    List<DetailText> listlisDetailText1 = listDetailTextRetracted(listlisTextLine1, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_RETRACTED, LINES);
+
+
+                   
+
+                    if (listlisTextLine1.Count > 0)
+                    {
+
+                        listlisDetailText.AddRange(listlisDetailText1);
+
+                    }
+
                     queueDetailText.Enqueue(listlisDetailText);
 
                   // Console.WriteLine("ssss");
@@ -208,7 +225,7 @@ namespace Filewatcherservice
                                    
                                 }
                                 DateTime currentDate = DateTime.ParseExact(dateTime, "yyyyMMddHHmmss", provider);
-
+                            
                                 if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                                 {
 
@@ -402,6 +419,81 @@ namespace Filewatcherservice
                     if (itemline[i].Contains(cashTake))
                     {
                         detail.setEndTime(DateTime.ParseExact(fileName + itemline[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+
+
+                    }
+
+                }
+                listDetail.Add(detail);
+
+            }
+
+            return listDetail;
+        }
+        public static List<DetailText> listDetailTextRetracted(List<TextLine> TextLine, string fileName, string transNo, string dateTime, string cashRequest, string cashTake, string lines)
+        {
+            CultureInfo provider = CultureInfo.InvariantCulture;
+            List<DetailText> listDetail = new List<DetailText>();
+
+            foreach (TextLine itemTextLine in TextLine)
+            {
+                DetailText detail = new DetailText();
+                var itemline = itemTextLine.getLine();
+                int Length = itemline.Count;
+                string line = null;
+                for (int i = 1; i < Length; i++)
+                {
+                    if (itemline[i].Contains(cashRequest))
+                    {
+                        detail.setStartTime(DateTime.ParseExact(fileName + itemline[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        detail.setCassette(itemline[i].Substring(itemline[i].LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
+
+                    }
+                    if (itemline[i].Contains(lines))
+                    {
+                        line = itemline[i];
+                    }
+                    if (line == null)
+                    {
+                        if (itemline[i].Contains(transNo))
+                        {
+                            detail.setTransNoTake(itemline[i].Substring(itemline[i].LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
+                         
+
+                        }
+                        if (itemline[i].Contains(dateTime))
+                        {
+                            detail.setDateTimeTake(itemline[i].Substring(itemline[i].LastIndexOf(@": ") + 1).Replace(@"\", @"").Trim());
+                          
+                        }
+                    }
+                    else
+                    {
+                        if (itemline[i].Contains(transNo))
+                        {
+                            detail.setTransNoRequest(itemline[i].Substring(itemline[i].LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
+
+                        }
+                        if (itemline[i].Contains(dateTime))
+                        {
+                            detail.setDateTimeRequest(itemline[i].Substring(itemline[i].LastIndexOf(@": ") + 1).Replace(@"\", @"").Trim());
+
+                        }
+
+                    }
+
+
+                    if (itemline[i].Contains(cashTake))
+                    {
+
+                        string[] arrListStr = itemline[i].Split(new char[] { ' ' });
+                        string datetime = "00:00:00";
+                        if (arrListStr[0].Trim().Length >= 8)
+                        {
+                             datetime = arrListStr[0].Remove(0, arrListStr[0].Length-8);
+                        }
+                        
+                        detail.setEndTime(DateTime.ParseExact(fileName + datetime, "yyyyMMddHH:mm:ss", provider));
 
 
                     }
