@@ -379,7 +379,10 @@ namespace Filewatcherservice
                 {
                     if (itemline[i].Contains(cashRequest))
                     {
-                        detail.setStartTime(DateTime.ParseExact(fileName + itemline[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        string[] arrListStr = itemline[i].Split(new char[] { ' ' });
+                        var ssss = DateTime.ParseExact(fileName + arrListStr[0].Trim(), "yyyyMMddHH:mm:ss", provider);
+
+                        detail.setStartTime(DateTime.ParseExact(fileName + arrListStr[0].Trim(), "yyyyMMddHH:mm:ss", provider));
                         detail.setCassette(itemline[i].Substring(itemline[i].LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
 
                     }
@@ -418,7 +421,8 @@ namespace Filewatcherservice
 
                     if (itemline[i].Contains(cashTake))
                     {
-                        detail.setEndTime(DateTime.ParseExact(fileName + itemline[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        string[] arrListStr = itemline[i].Split(new char[] { ' ' });
+                        detail.setEndTime(DateTime.ParseExact(fileName + arrListStr[0].Trim(), "yyyyMMddHH:mm:ss", provider));
 
 
                     }
@@ -445,7 +449,8 @@ namespace Filewatcherservice
                 {
                     if (itemline[i].Contains(cashRequest))
                     {
-                        detail.setStartTime(DateTime.ParseExact(fileName + itemline[i].Substring(0, 8), "yyyyMMddHH:mm:ss", provider));
+                        string[] arrListStr = itemline[i].Split(new char[] { ' ' });
+                        detail.setStartTime(DateTime.ParseExact(fileName + arrListStr[0].Trim(), "yyyyMMddHH:mm:ss", provider));
                         detail.setCassette(itemline[i].Substring(itemline[i].LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
 
                     }
@@ -511,9 +516,11 @@ namespace Filewatcherservice
 
             List<TextLine> listTextLine = new List<TextLine>();
             List<string> listStringitem = new List<string>();
+            List<string> listStringitem1 = new List<string>();
             TextLine textLine = new TextLine();
             string checkItemtext = null;
             string checkRequest = null;
+            string checkItemtext1 = null;
             foreach (string itemtext in text)
             {
                 if (itemtext.Contains(lines) && checkItemtext == null)
@@ -521,34 +528,57 @@ namespace Filewatcherservice
                     textLine.setTextStart(itemtext);
                     listStringitem.Add(itemtext);
                     checkItemtext = itemtext;
+                    listStringitem1 = new List<string>();
                     continue;
                 }
-                if ((itemtext.Contains(lines) && checkItemtext != null && checkRequest == null) || (itemtext.Contains(textStart) && checkRequest != null))
+                if (checkItemtext != null)
                 {
-                    listStringitem = new List<string>();
-                    textLine = new TextLine();
                     listStringitem.Add(itemtext);
+                }
 
-                    checkItemtext = itemtext;
-                    checkRequest = null;
-                    continue;
+                if (itemtext.Contains(lines) && checkItemtext != null)
+                {
+                    checkItemtext1 = lines;
+                   
+                }
+                if (checkItemtext != null && checkItemtext1!=null)
+                {if (itemtext.Contains(lines))
+                    {
+                        listStringitem1 = new List<string>();
+                    }
+                   
+
+                    listStringitem1.Add(itemtext);
                 }
                 if (itemtext.Contains(textStart))
                 {
                     textLine.setTextStart(itemtext);
                     checkRequest = itemtext;
                 }
-                if (checkItemtext != null)
+
+                if (itemtext.Contains(textStart) && checkItemtext != null && checkRequest != null )
                 {
-                    listStringitem.Add(itemtext);
+                    listStringitem = new List<string>();
+                    listStringitem.AddRange(listStringitem1);
+                    listStringitem1=new List<string> ();
+                    textLine = new TextLine();
+                    checkItemtext = null;
+                    checkItemtext1 = null;
+                    checkRequest = null;
+
+                    continue;
                 }
+             
+               
                 if (itemtext.Contains(textEnd))
                 {
                     textLine.setTextEnd(itemtext);
                     textLine.setLine(listStringitem);
                     listTextLine.Add(textLine);
                     listStringitem = new List<string>();
+                    listStringitem1 = new List<string>();
                     textLine = new TextLine();
+                    checkItemtext1 = null;
                     checkItemtext = null;
                     checkRequest = null;
                 }
