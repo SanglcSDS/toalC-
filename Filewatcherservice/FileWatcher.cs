@@ -63,12 +63,12 @@ namespace Filewatcherservice
 
                     List<TextLine> listlisTextLine1 = textLine(liststring, CASH_REQUEST, CASH_RETRACTED, LINES);
 
-                  
+
                     List<DetailText> listlisDetailText = listDetailText(listlisTextLine, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_TAKEN, LINES);
                     List<DetailText> listlisDetailText1 = listDetailTextRetracted(listlisTextLine1, fileName, TRANS_NO, DATE_TIME, CASH_REQUEST, CASH_RETRACTED, LINES);
 
 
-                   
+
 
                     if (listlisTextLine1.Count > 0)
                     {
@@ -79,7 +79,7 @@ namespace Filewatcherservice
 
                     queueDetailText.Enqueue(listlisDetailText);
 
-                  // Console.WriteLine("ssss");
+                    // Console.WriteLine("ssss");
                     if (queueDetailText.Count >= 2)
                     {
                         Thread th_one = new Thread(() =>
@@ -95,12 +95,12 @@ namespace Filewatcherservice
                         th_one.Start();
                         th_one.Join();
 
-                      
 
-                       queueDetailText.Dequeue();
+
+                        queueDetailText.Dequeue();
                     }
 
-                  
+
 
                 }
                 else
@@ -108,8 +108,8 @@ namespace Filewatcherservice
 
                     Logger.Log(string.Format(fileNamejrn));
                 }
-                
-               
+
+
                 Logger.Log($"---------------------------------------------------------------");
                 Console.WriteLine($"File Changed. Name: {fileNamejrn}" + " index line:" + indexline);
 
@@ -222,10 +222,10 @@ namespace Filewatcherservice
                                 if (arrListStr[1].Length >= 14)
                                 {
                                     dateTime = arrListStr[1].Substring(0, 14);
-                                   
+
                                 }
                                 DateTime currentDate = DateTime.ParseExact(dateTime, "yyyyMMddHHmmss", provider);
-                            
+
                                 if (startDateTransaction <= currentDate && endDateDateTransaction >= currentDate)
                                 {
 
@@ -463,13 +463,13 @@ namespace Filewatcherservice
                         if (itemline[i].Contains(transNo))
                         {
                             detail.setTransNoTake(itemline[i].Substring(itemline[i].LastIndexOf(@":") + 1).Replace(@"\", @"").Trim());
-                         
+
 
                         }
                         if (itemline[i].Contains(dateTime))
                         {
                             detail.setDateTimeTake(itemline[i].Substring(itemline[i].LastIndexOf(@": ") + 1).Replace(@"\", @"").Trim());
-                          
+
                         }
                     }
                     else
@@ -495,9 +495,9 @@ namespace Filewatcherservice
                         string datetime = "00:00:00";
                         if (arrListStr[0].Trim().Length >= 8)
                         {
-                             datetime = arrListStr[0].Remove(0, arrListStr[0].Length-8);
+                            datetime = arrListStr[0].Remove(0, arrListStr[0].Length - 8);
                         }
-                        
+
                         detail.setEndTime(DateTime.ParseExact(fileName + datetime, "yyyyMMddHH:mm:ss", provider));
 
 
@@ -511,86 +511,65 @@ namespace Filewatcherservice
             return listDetail;
         }
 
+
         public static List<TextLine> textLine(List<string> text, string textStart, string textEnd, string lines)
         {
 
             List<TextLine> listTextLine = new List<TextLine>();
             List<string> listStringitem = new List<string>();
-            List<string> listStringitem1 = new List<string>();
-            TextLine textLine = new TextLine();
-            string checkItemtext = null;
-            string checkRequest = null;
-            string checkItemtext1 = null;
+        
             foreach (string itemtext in text)
             {
-                if (itemtext.Contains(lines) && checkItemtext == null)
-                {
-                    textLine.setTextStart(itemtext);
-                    listStringitem.Add(itemtext);
-                    checkItemtext = itemtext;
-                    listStringitem1 = new List<string>();
-                    continue;
-                }
-                if (checkItemtext != null)
-                {
-                    listStringitem.Add(itemtext);
-                }
-
-                if (itemtext.Contains(lines) && checkItemtext != null)
-                {
-                    checkItemtext1 = lines;
-                   
-                }
-                if (checkItemtext != null && checkItemtext1!=null)
-                {if (itemtext.Contains(lines))
-                    {
-                        listStringitem1 = new List<string>();
-                    }
-                   
-
-                    listStringitem1.Add(itemtext);
-                }
-                if (itemtext.Contains(textStart))
-                {
-                    textLine.setTextStart(itemtext);
-                    checkRequest = itemtext;
-                }
-
-                if (itemtext.Contains(textStart) && checkItemtext != null && checkRequest != null )
-                {
-                    listStringitem = new List<string>();
-                    listStringitem.AddRange(listStringitem1);
-                    listStringitem1=new List<string> ();
-                    textLine = new TextLine();
-                    checkItemtext = null;
-                    checkItemtext1 = null;
-                    checkRequest = null;
-
-                    continue;
-                }
-             
                
+                listStringitem.Add(itemtext);
+
                 if (itemtext.Contains(textEnd))
                 {
-                    textLine.setTextEnd(itemtext);
-                    textLine.setLine(listStringitem);
-                    listTextLine.Add(textLine);
-                    listStringitem = new List<string>();
-                    listStringitem1 = new List<string>();
-                    textLine = new TextLine();
-                    checkItemtext1 = null;
-                    checkItemtext = null;
-                    checkRequest = null;
-                }
+                    string checktextEnd = null;
+                    string checktextLine = null;
+                    TextLine textLine = new TextLine();
+                    List<string> listStringReverse = new List<string>();
+                    listStringitem.Reverse();
+                    foreach (string itemReverse in listStringitem)
+                    {
+                        listStringReverse.Add(itemReverse);
 
+                        if (itemReverse.Contains(textEnd))
+                        {
+                            textLine.setTextEnd(itemReverse);
+                        }
+                        if (itemReverse.Contains(lines))
+                        {
+                            checktextLine = itemReverse;
+
+                        }
+                        if (itemReverse.Contains(textStart))
+                        {
+                            textLine.setTextStart(itemReverse);
+                            checktextEnd = itemReverse;
+
+                        }
+                        if (itemReverse.Contains(lines) && checktextEnd != null && checktextLine!=null)
+                        {
+                          
+                            listStringReverse.Reverse();
+                            textLine.setLine(listStringReverse);
+                            listTextLine.Add(textLine);
+                            listStringitem = new List<string>();
+                          
+                            break;
+                        }
+                      
+
+
+                    }
+
+                }
             }
 
-
-
-            return listTextLine;
-
-
+            return listTextLine;    
         }
+     
         public static List<string> listDetailText(string fullPath, string name, string textStart, string textEnd)
         {
 
