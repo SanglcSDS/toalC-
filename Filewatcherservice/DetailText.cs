@@ -14,9 +14,9 @@ namespace Filewatcherservice
         private string cassette;
    
         private string dateTimeRequest;
-        private string dateTimeTake;
+      //  private string dateTimeTake;
         private string transNoRequest;
-        private string transNoTake;
+      //  private string transNoTake;
         private DateTime startTime;
         private DateTime endTime;
 
@@ -69,7 +69,7 @@ namespace Filewatcherservice
             }
            
         }
-        public string getTransNoTake()
+    /*    public string getTransNoTake()
         {
             return transNoTake;
         }
@@ -103,7 +103,7 @@ namespace Filewatcherservice
             }
            
            
-        }
+        }*/
         public string getDateTimeRequest()
         {
             return dateTimeRequest;

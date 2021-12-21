@@ -35,7 +35,7 @@ namespace Filewatcherservice
         {
             System.Timers.Timer timer = new System.Timers.Timer();
             timer.Interval = (int)TimeSpan.FromMinutes(Int32.Parse(DELAY_MINUTE)).TotalMilliseconds;
-           //  timer.Interval = 200;
+            // timer.Interval = 200;
             timer.Elapsed += timer_Elapsed;
             timer.Start();
 
