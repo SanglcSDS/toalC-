@@ -11,7 +11,7 @@ using System.Timers;
 using System.Threading;
 using System.Drawing.Drawing2D;
 using System.Collections;
-
+using System.Drawing.Imaging;
 
 namespace Filewatcherservice
 {
@@ -275,9 +275,13 @@ namespace Filewatcherservice
                     graphicImage.DrawImage(ImageFromText(Cassette, brFore, stringColor1, stringColor2, 4), new Point(5, 30));
                     graphicImage.DrawImage(ImageFromText(itemPartImage.getCurrentDateTime(), brFore, stringColor1, stringColor2, 4), new Point(1100, 690));
                     graphicImage.DrawImage(ImageFromText("Trans No: " + itemPartImage.getTransNo(), brFore, stringColor1, stringColor2, 4), new Point(600, 690));
+                    Int32 quality = 80;
+                    ImageCodecInfo jpegEncoder = ImageCodecInfo.GetImageDecoders().First(c => c.FormatID == ImageFormat.Jpeg.Guid);
+                    EncoderParameters encparams = new EncoderParameters(1);
+                    encparams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, quality);
 
-
-                    img.Save(itemPartImage.getPasrtSave());
+                    ConvertTo24bpp(img).Save(itemPartImage.getPasrtSave(), jpegEncoder, encparams);
+                   // img.Save(itemPartImage.getPasrtSave());
 
                 }
 
@@ -289,6 +293,14 @@ namespace Filewatcherservice
                 Logger.Log(string.Format("The process failed: {0}", ex.ToString()));
 
             }
+        }
+        public static Bitmap ConvertTo24bpp(Image img)
+        {
+            var bmp = new Bitmap(img.Width, img.Height,
+                          System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            using (var gr = Graphics.FromImage(bmp))
+                gr.DrawImage(img, new Rectangle(0, 0, img.Width, img.Height));
+            return bmp;
         }
         public static Image ImageFromText(string strText, Font fnt, Color clrFore, Color clrBack, int blurAmount)
         {

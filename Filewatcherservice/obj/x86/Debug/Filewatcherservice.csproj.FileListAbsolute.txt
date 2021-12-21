@@ -26,4 +26,3 @@ C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Debug\Filewatcherser
 C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Debug\Filewatcherservice.csproj.CoreCompileInputs.cache
 C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Debug\Filewatcherservice.exe
 C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Debug\Filewatcherservice.pdb
-C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Debug\Filewatcherservice.csproj.AssemblyReference.cache
