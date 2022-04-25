@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Configuration.Install;
 using System.Linq;
 using System.ServiceProcess;
-using System.Threading.Tasks;
 
 namespace Filewatcherservice
 {

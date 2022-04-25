@@ -25,3 +25,13 @@ C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Release\Filewatchers
 C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.CoreCompileInputs.cache
 C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Release\Filewatcherservice.exe
 C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Release\Filewatcherservice.pdb
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.ProjectInstaller.resources
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.Service1.resources
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.GenerateResource.cache
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.CoreCompileInputs.cache
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.exe
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.pdb
+E:\ASP\Print_Text_On_Image\Filewatcherservice\bin\x86\Release\Filewatcherservice.exe.config
+E:\ASP\Print_Text_On_Image\Filewatcherservice\bin\x86\Release\Filewatcherservice.exe
+E:\ASP\Print_Text_On_Image\Filewatcherservice\bin\x86\Release\Filewatcherservice.pdb
+E:\ASP\Print_Text_On_Image\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.AssemblyReference.cache

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
 using System.Drawing;
 using System.Globalization;
@@ -18,9 +17,6 @@ namespace Filewatcherservice
 
     public class FileWatcher
     {
-
-
-
         private static string INPUT_TEXT = ConfigurationManager.AppSettings["text"];
         private static string CAM1 = ConfigurationManager.AppSettings["cam1"];
         private static string CAM2 = ConfigurationManager.AppSettings["cam2"];
@@ -51,7 +47,6 @@ namespace Filewatcherservice
                 PathLocation(OUPUT_CAM1 + date);
                 PathLocation(OUPUT_CAM2 + date);
                 PathLocation(INPUT_TEXT);
-
 
                 if (IsTextJrn(fileNamejrn))
                 {

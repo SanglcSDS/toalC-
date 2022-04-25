@@ -9,7 +9,6 @@ using System.IO;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Filewatcherservice
 {
@@ -30,7 +29,6 @@ namespace Filewatcherservice
             OnStart(null);
 
         }
-
         protected override void OnStart(string[] args)
         {
             System.Timers.Timer timer = new System.Timers.Timer();
@@ -66,14 +64,6 @@ namespace Filewatcherservice
                 }
 
             }
-
-
-
-
-
-
-
-
 
         }
 
