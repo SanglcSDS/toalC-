@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filewatcherservice", "Filewatcherservice.csproj", "{AFA13870-CFF2-4F33-A468-454F5828CB28}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FileWatcherSetup", "..\FileWatcherSetup\FileWatcherSetup.vdproj", "{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FileWatcherSetup", "..\FileWatcherSetup\FileWatcherSetup.vdproj", "{CE5675EE-9E97-48D0-94A7-790EB472298A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,16 +29,12 @@ Global
 		{AFA13870-CFF2-4F33-A468-454F5828CB28}.Release|x64.Build.0 = Release|x64
 		{AFA13870-CFF2-4F33-A468-454F5828CB28}.Release|x86.ActiveCfg = Release|x86
 		{AFA13870-CFF2-4F33-A468-454F5828CB28}.Release|x86.Build.0 = Release|x86
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Debug|Any CPU.ActiveCfg = Debug
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Debug|x64.ActiveCfg = Debug
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Debug|x64.Build.0 = Debug
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Debug|x86.ActiveCfg = Debug
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Debug|x86.Build.0 = Debug
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Release|Any CPU.ActiveCfg = Release
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Release|x64.ActiveCfg = Release
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Release|x64.Build.0 = Release
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Release|x86.ActiveCfg = Release
-		{81DA8D1C-9D24-4DF8-91EE-532AEDAB8EB0}.Release|x86.Build.0 = Release
+		{CE5675EE-9E97-48D0-94A7-790EB472298A}.Debug|Any CPU.ActiveCfg = Debug
+		{CE5675EE-9E97-48D0-94A7-790EB472298A}.Debug|x64.ActiveCfg = Debug
+		{CE5675EE-9E97-48D0-94A7-790EB472298A}.Debug|x86.ActiveCfg = Debug
+		{CE5675EE-9E97-48D0-94A7-790EB472298A}.Release|Any CPU.ActiveCfg = Release
+		{CE5675EE-9E97-48D0-94A7-790EB472298A}.Release|x64.ActiveCfg = Release
+		{CE5675EE-9E97-48D0-94A7-790EB472298A}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
