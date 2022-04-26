@@ -15,26 +15,26 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_43B540C98F3CECD6CD2434D2F3777589"
+        "OwnerKey" = "8:_9057738884834554B7D7BC4456CD7A88"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9057738884834554B7D7BC4456CD7A88"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F282977C81E0E69A3F20706CEB1895EC"
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9057738884834554B7D7BC4456CD7A88"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F282977C81E0E69A3F20706CEB1895EC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9057738884834554B7D7BC4456CD7A88"
+        "OwnerKey" = "8:_43B540C98F3CECD6CD2434D2F3777589"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -55,6 +55,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -71,6 +79,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:FALSE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -120,7 +144,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.7.2"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.6"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=863262"
                 }
@@ -128,14 +152,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F282977C81E0E69A3F20706CEB1895EC"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_43B540C98F3CECD6CD2434D2F3777589"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_F282977C81E0E69A3F20706CEB1895EC"
+                    "_43B540C98F3CECD6CD2434D2F3777589"
                     {
                     "Name" = "8:System.Net.Http.dll"
                     "Attributes" = "3:512"
@@ -216,7 +240,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FileWatcherSetup"
         "ProductCode" = "8:{551DE661-0619-4143-A6FD-3CA212DBACCD}"
-        "PackageCode" = "8:{95647708-6EFA-4761-B812-69DDF0FBCCCD}"
+        "PackageCode" = "8:{A7959C83-96FD-417E-96C1-2A1EC8EF4AAB}"
         "UpgradeCode" = "8:{BACE369A-8F1B-40AD-B2FF-2E10E4F16051}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
