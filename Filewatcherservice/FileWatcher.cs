@@ -356,9 +356,11 @@ namespace Filewatcherservice
                 {
                     if (item.Contains(transNo))
                     {
-                            detail.setCassette(item.Split(new char[] { ':' })[1].Trim());
+                       if(item.Length> transNo.Length)
+                        {
+                            detail.setCassette(item.Substring(transNo.Length, item.Length - (transNo.Length + 1)));
+                        }
                         break;
-
                     }
 
                 }
@@ -501,8 +503,6 @@ namespace Filewatcherservice
 
             foreach (string itemtext in text)
             {
-
-
                 listStringitem.Add(itemtext);
                 if (itemtext.Contains(TRANSACTION_START))
                 {

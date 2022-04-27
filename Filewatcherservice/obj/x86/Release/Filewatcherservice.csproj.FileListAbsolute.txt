@@ -34,3 +34,4 @@ D:\bvb\searchImage\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.
 D:\bvb\searchImage\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.CoreCompileInputs.cache
 D:\bvb\searchImage\Filewatcherservice\obj\x86\Release\Filewatcherservice.exe
 D:\bvb\searchImage\Filewatcherservice\obj\x86\Release\Filewatcherservice.pdb
+D:\bvb\searchImage\Filewatcherservice\obj\x86\Release\Filewatcherservice.csproj.AssemblyReference.cache

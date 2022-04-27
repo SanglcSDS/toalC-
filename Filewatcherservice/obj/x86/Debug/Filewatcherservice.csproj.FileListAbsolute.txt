@@ -29,7 +29,6 @@ C:\Users\84936\source\repos\demo\Filewatcherservice\obj\x86\Debug\Filewatcherser
 D:\bvb\searchImage\Filewatcherservice\bin\x86\Debug\Filewatcherservice.exe.config
 D:\bvb\searchImage\Filewatcherservice\bin\x86\Debug\Filewatcherservice.exe
 D:\bvb\searchImage\Filewatcherservice\bin\x86\Debug\Filewatcherservice.pdb
-D:\bvb\searchImage\Filewatcherservice\obj\x86\Debug\Filewatcherservice.csproj.AssemblyReference.cache
 D:\bvb\searchImage\Filewatcherservice\obj\x86\Debug\Filewatcherservice.ProjectInstaller.resources
 D:\bvb\searchImage\Filewatcherservice\obj\x86\Debug\Filewatcherservice.Service1.resources
 D:\bvb\searchImage\Filewatcherservice\obj\x86\Debug\Filewatcherservice.csproj.GenerateResource.cache

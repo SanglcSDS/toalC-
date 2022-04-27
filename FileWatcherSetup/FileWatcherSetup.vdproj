@@ -248,7 +248,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:FileWatcherSetup"
         "ProductCode" = "8:{551DE661-0619-4143-A6FD-3CA212DBACCD}"
-        "PackageCode" = "8:{A7959C83-96FD-417E-96C1-2A1EC8EF4AAB}"
+        "PackageCode" = "8:{373C6126-C1EA-4208-812B-3C7654C95073}"
         "UpgradeCode" = "8:{BACE369A-8F1B-40AD-B2FF-2E10E4F16051}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
